@@ -33,9 +33,10 @@
         overflow-x: hidden;
         scroll-behavior: smooth;
     }
-  :root{
-        --pcolor:#0C7BC7;
-        --scolor:#132340;
+
+    :root {
+        --pcolor: #0D80CE;
+        --scolor: #132340;
     }
 
 
@@ -47,9 +48,10 @@
         padding-left: 100px;
         padding-top: 70px;
         background: linear-gradient(125deg, rgba(0, 0, 0, 0.534), rgba(0, 0, 0, 0.63)), url("./src/hero-bg3.webp");
-        background-position:top center;
+        background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
+        position: relative;
     }
 
     .hero-text h6 {
@@ -91,9 +93,7 @@
         transform: .3s ease;
         animation: swin 3s ease-in-out infinite;
 
-    filter: drop-shadow(0 0 0px #c70c98)
-            drop-shadow(0 0 10px #0C7BC7)
-            drop-shadow(0 0 40px #0099ff);
+        filter: drop-shadow(0 0 0px #c70c98) drop-shadow(0 0 10px #0C7BC7) drop-shadow(0 0 40px #0099ff);
 
     }
 
@@ -175,9 +175,37 @@
         width: 60px;
         background: var(--pcolor);
         border: none;
+        border-radius: 7px;
     }
 
     .sidebuttons button span {
+        font-size: 23px;
+        color: white;
+    }
+
+    .fixed {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .fixed-btn {
+        height: 60px;
+        width: 60px;
+        background: var(--scolor);
+        border: none;
+        border-radius: 7px;
+        opacity: 0;
+        transform: translateY(-260px);
+        transition: .6s ease;
+    }
+
+    .fixed-btn.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .fixed-btn span {
         font-size: 23px;
         color: white;
     }
@@ -331,6 +359,110 @@
 
         .circle-btn span {
             font-size: 19px;
+        }
+    }
+
+
+    /*Manufacturing Section*/
+    .manufact-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 70px;
+        background-color: #FFFFFF;
+        gap: 40px;
+    }
+
+    .menufact-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 30px;
+        background-color: #eeeeee93;
+        position: relative;
+        border-radius: 7px;
+        min-height: 250px;
+        transition: .6s ease;
+    }
+
+    .menufact-card:hover {
+        background: #068feb;
+    }
+
+    .menufact-card:hover .mh1,
+    .menufact-card:hover .mp1 {
+        color: white;
+    }
+
+    .menufact-card:hover .m-icon {
+        background: rgb(250, 249, 249);
+    }
+
+    .menufact-card:hover .m-icon span {
+        color: var(--pcolor);
+        transform: rotateY(-360deg);
+
+    }
+
+    .menufact-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./src/manufactbg.webp") center/cover no-repeat;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        z-index: 0;
+    }
+
+    .menufact-card h1 {
+        font-size: clamp(21px, 2.2vw, 25px);
+        margin-top: 40px;
+        margin-bottom: 10px;
+        z-index: 1;
+
+    }
+
+    .menufact-card p {
+        font-size: clamp(14px, 1.5vw, 16px);
+
+        line-height: 1.8;
+        color: gray;
+        flex: 1;
+        z-index: 1;
+    }
+
+    .m-icon {
+        height: clamp(70px, 7.5vw, 80px);
+        width: clamp(70px, 7.5vw, 80px);
+        background: var(--pcolor);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 7px;
+        position: absolute;
+        top: -40px;
+        left: 30px;
+        z-index: 1;
+    }
+
+    .m-icon span {
+        font-size: clamp(35px, 4vw, 50px);
+        color: white;
+        transition: .6s ease;
+    }
+
+    @media (max-width:980px) {
+        .manufact-section {
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+    }
+
+    @media (max-width:720px) {
+        .manufact-section {
+            padding-inline: 15px;
+            padding-block: 100px;
+            grid-template-columns: 1fr;
         }
     }
 </style>
@@ -487,6 +619,51 @@
             <button><span class="material-symbols-outlined">arrow_right_alt</span></button>
             <button><span class="material-symbols-outlined">arrow_left_alt</span></button>
         </div>
+
+        <div class="fixed">
+            <button class="fixed-btn"><span class="material-symbols-outlined">arrow_warm_up</span></button>
+        </div>
+
+    </div>
+
+    <div class="manufact-section">
+
+        <div class="menufact-card">
+            <h1 class="mh1">Worldwide Manufacturing</h1>
+            <p class="mp1">
+                Delivering high-quality chemical products to industries worldwide with advanced manufacturing
+                technologies and global standards.
+            </p>
+
+            <div class="m-icon">
+                <span class="material-symbols-outlined">globe_uk</span>
+            </div>
+        </div>
+
+        <div class="menufact-card">
+            <h1 class="mh1">Best Quality Service</h1>
+            <p class="mp1">
+                We ensure exceptional product quality through rigorous testing, strict safety measures, and continuous
+                quality control processes.
+            </p>
+
+            <div class="m-icon">
+                <span class="material-symbols-outlined">verified</span>
+            </div>
+        </div>
+
+        <div class="menufact-card">
+            <h1 class="mh1">Experienced Workers</h1>
+            <p class="mp1">
+                Our skilled professionals and experienced engineers are dedicated to delivering reliable and innovative
+                chemical solutions.
+            </p>
+
+            <div class="m-icon">
+                <span class="material-symbols-outlined">engineering</span>
+            </div>
+        </div>
+
     </div>
 
     <footer class="footer">

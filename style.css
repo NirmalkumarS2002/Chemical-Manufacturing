@@ -50,6 +50,11 @@ body {
     justify-content: center;
 }
 
+.imgwrap a{
+    display: flex;
+    align-items: center;
+}
+
 .companylogo {
     width: 200px;
     padding-right: 20px;
@@ -438,7 +443,7 @@ body {
     right: 4px;
     top: 50%;
     padding: 11px 20px;
-    background: var(--pcolor);
+    background: var(--scolor);
     border: none;
     color: white;
     border-radius: 7px;
@@ -466,7 +471,7 @@ body {
 .fsec1 h1{
     font-family: "Inter", sans-serif;
     color: transparent;
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px var(--scolor);
     font-size: 40px;
 
 }
@@ -530,7 +535,7 @@ body {
     justify-content: center;
     text-decoration: none;
     font-size: 26px;
-    color: var(--pcolor);
+    color: var(--scolor);
     background: rgb(255, 255, 255);
     border-radius: 50%;
 
