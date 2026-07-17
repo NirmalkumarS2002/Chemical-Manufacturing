@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-   font-family: "Sora", sans-serif;
+    font-family: "Sora", sans-serif;
 }
 
 
@@ -346,4 +346,153 @@ body {
     width: 100%;
     height: 100vh;
     background: red;
+}
+
+
+/* footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: #1F1F1F;
+    padding-inline: 20px;
+}
+
+.footerhead,
+.footer1 {
+    width: 100%;
+    max-width: 1400px;
+    padding-block: 40px;
+}
+
+.footerhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+}
+
+.footerform {
+    position: relative;
+}
+
+.footerform input {
+    padding: 15px 20px;
+    min-width: 280px;
+    width: 100%;
+    border: none;
+}
+
+.footerform button {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    padding: 11px 20px;
+    transform: translateY(-50%);
+}
+
+.footerlogo {
+    width: 180px;
+}
+
+/* footer1 */
+
+.footer1 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.fsec1 h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.fsec1 p {
+    line-height: 1.4;
+    font-size: 15px;
+    max-width: 260px;
+    margin-bottom: 20px;
+
+}
+
+
+.fersec2 h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+
+.footerlinks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.footerlinks a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 15px;
+    gap: 3px;
+}
+
+.footerlinks a span {
+    font-size: 20px;
+}
+
+.fersec2 .footerlinks {
+    margin-bottom: 20px;
+}
+
+.footer-sotial-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-sotial-icons a {
+    padding: 2px;
+    font-size: 26px;
+    background: white;
+    border-radius: 4px;
+}
+
+/* footer 2 */
+
+.footer2 {
+    width: 100%;
+    padding-block: 30px;
+    text-align: center;
+    border-top: 1px solid gray;
+}
+
+.footer2 p {
+    font-size: 13px;
+    color: white;
+}
+
+@media (max-width:1080px) {
+    .footer1 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width:700px) {
+    .footer1 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footerhead {
+        flex-direction: column;
+        gap: 20px;
+        padding-block: 40px;
+    }
+}
+
+@media (max-width:500px) {
+    .footer1 {
+        grid-template-columns: 1fr;
+    }
 }
