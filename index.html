@@ -154,6 +154,9 @@
         width: 50px;
         border: none;
         background: var(--pcolor);
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
     }
 
@@ -187,11 +190,12 @@
         position: fixed;
         right: 20px;
         bottom: 20px;
+        z-index: 1;
     }
 
     .fixed-btn {
-        height: 60px;
-        width: 60px;
+        height: clamp(40px, 5vw, 60px);
+        width: clamp(40px, 5vw, 60px);
         background: var(--scolor);
         border: none;
         border-radius: 7px;
@@ -206,7 +210,7 @@
     }
 
     .fixed-btn span {
-        font-size: 23px;
+        font-size: clamp(18px, 2vw, 23px);
         color: white;
     }
 
@@ -465,6 +469,157 @@
             grid-template-columns: 1fr;
         }
     }
+
+    /* About Industries */
+
+    .abt-industries {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #F5F6F7;
+        padding: 50px;
+        position: relative;
+
+    }
+
+    .abtbg2{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 200px;
+    }
+
+    .abt-industrie-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1500px;
+        gap: 20px;
+    }
+
+    .abt-left {
+        padding: 40px;
+        overflow: hidden;
+        position: relative;
+    }
+
+
+    .abtimage {
+        width: 100%;
+        background: url("./src/abt-img2.webp") center/cover no-repeat;
+        height: 100%;
+        min-height: 450px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .abt-fixed {
+        position: absolute;
+        background: white;
+        padding: 10px;
+        right: 0px;
+        bottom: 20px;
+    }
+
+    .abt-fixed div {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    .abt-fixed div span {
+        font-size: 30px;
+        color: var(--pcolor);
+    }
+
+    .abt-fixed p {
+        font-size: 15px;
+    }
+
+
+
+    .abt-right {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .abt-right h6 {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: var(--pcolor);
+        margin-bottom: 10px;
+    }
+
+    .abt-right h3 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .abt-right p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    .abt-right button {
+        padding: 15px 40px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        width: fit-content;
+        border: none;
+        background: var(--pcolor);
+        color: white;
+        border-radius: 7px;
+        font-size: 15px;
+    }
+
+    .abt-right button span{
+        font-size: clamp(22px,2.2vw,24px);
+    }
+
+    @media (max-width:900px) {
+        .abt-industrie-section {
+            grid-template-columns: 1fr;
+        }
+
+        .abtbg2{
+            display: none;
+        }
+
+        .abt-industries {
+            padding: 15px;
+        }
+
+        .abt-left {
+            padding: 15px;
+        }
+
+        .abtimage {
+            min-height: 300px;
+        }
+
+
+        .abt-right h6 {
+            font-size: 13px;
+        }
+
+        .abt-right h3 {
+            font-size: 30px;
+        }
+
+        .abt-right p {
+            font-size: 13px;
+        }
+
+        .abt-right button {
+            padding: 13px 30px;
+            font-size: 13px;
+        }
+    }
 </style>
 
 <body>
@@ -664,6 +819,47 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="abt-industries">
+        <div class="abt-industrie-section">
+
+            <div class="abt-left">
+                <div class="abtimage">
+                    <!-- <img src="./src/abt-img.webp" alt="Abt image" class="abtimage"> -->
+                </div>
+
+                <div class="abt-fixed">
+                    <div><span class="material-symbols-outlined">note_alt</span> 245M</div>
+                    <p>Litres Delivered</p>
+                </div>
+            </div>
+
+            <div class="abt-right">
+                <h6>About Industrie</h6>
+                <h3>We design and build some of the most
+                    poweful facilities in the world.</h3>
+
+                <p>
+                    Welcome to Industrie, a leading industry innovator with a rich history going excellence. With a
+                    passion
+                    for precision and a commitment quality we have been empowering of industries and driving progress
+                    editors now use their default model.
+                </p>
+
+                <p>
+                    Welcome to Industrie, a leading industry innovator with a rich history going excellence. With a
+                    passion for precision and a commitment quality we have been empowering of industries and driving
+                    progress editors now use their default model.
+                </p>
+
+                <button>Discover Us<span class="material-symbols-outlined">arrow_right_alt</span></button>
+            </div>
+
+        </div>
+
+    
+            <img src="./src/abtbg2.webp" alt="" class="abtbg2">
     </div>
 
     <footer class="footer">
