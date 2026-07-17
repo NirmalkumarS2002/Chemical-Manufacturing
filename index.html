@@ -33,17 +33,21 @@
         overflow-x: hidden;
         scroll-behavior: smooth;
     }
+  :root{
+        --pcolor:#0C7BC7;
+        --scolor:#132340;
+    }
+
 
     .herosection {
-        background: gray;
         height: 100vh;
         width: 100%;
         display: flex;
         align-items: center;
         padding-left: 100px;
-        margin-top: 70px;
-        background: linear-gradient(125deg, rgba(0, 0, 0, 0.575), rgba(0, 0, 0, 0.705)), url("./src/hero-bg2.webp");
-        background-position: center;
+        padding-top: 70px;
+        background: linear-gradient(125deg, rgba(0, 0, 0, 0.534), rgba(0, 0, 0, 0.63)), url("./src/hero-bg3.webp");
+        background-position:top center;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -77,16 +81,22 @@
         height: 85px;
     }
 
+
     .arrow-container h1 {
         font-family: "Inter", sans-serif;
         font-size: 150px;
         font-weight: 500;
         color: transparent;
-        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+        -webkit-text-stroke: 2px var(--pcolor);
         transform: .3s ease;
         animation: swin 3s ease-in-out infinite;
 
+    filter: drop-shadow(0 0 0px #c70c98)
+            drop-shadow(0 0 10px #0C7BC7)
+            drop-shadow(0 0 40px #0099ff);
+
     }
+
 
     @keyframes swin {
         from {
@@ -143,10 +153,13 @@
         height: 50px;
         width: 50px;
         border: none;
+        background: var(--pcolor);
+
     }
 
     .circle-btn span {
         font-size: 26px;
+        color: white;
     }
 
     .sidebuttons {
@@ -160,10 +173,13 @@
     .sidebuttons button {
         height: 60px;
         width: 60px;
+        background: var(--pcolor);
+        border: none;
     }
 
     .sidebuttons button span {
-        font-size: 23px
+        font-size: 23px;
+        color: white;
     }
 
     @media (max-width:1120px) {
@@ -240,7 +256,7 @@
         .herosection {
             padding-left: 0;
             padding: 10px;
-            margin-top: 0px;
+            padding-top: 0px;
         }
 
         .hero-text>h1 {
@@ -339,7 +355,7 @@
                     </div>
 
                     <div class="head-details">
-                        <span class="material-symbols-outlined">mail</span>
+                        <span class="material-symbols-outlined">send</span>
                         <div>
                             <p>Email</p>
                             <a href="">admin@gmail.com</a>
@@ -425,7 +441,7 @@
 
 
                     <div class="side-head-sotial">
-                        <h3>Sotial pages</h3>
+                        <h3>Social pages</h3>
                         <div class="side-sotial-icons">
                             <a href=""><i class="fa-brands fa-whatsapp"></i></a>
                             <a href=""><i class="fa-brands fa-facebook"></i></a>

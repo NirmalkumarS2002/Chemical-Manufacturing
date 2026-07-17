@@ -5,6 +5,12 @@
     font-family: "Sora", sans-serif;
 }
 
+:root {
+    --pcolor: #0C7BC7;
+    --scolor: #132340;
+    --bcolor:rgba(175, 175, 175, 0.834);
+}
+
 
 html,
 body {
@@ -19,27 +25,29 @@ body {
 }
 
 .header {
-    background: red;
     display: flex;
     position: absolute;
     align-items: center;
+    justify-content: center;
     padding-inline: 20px;
     overflow-x: hidden;
     width: 100%;
     transition: .6s ease;
     z-index: 9999;
+    border-bottom: 1px solid gray;
+    background: transparent;
 
 }
 
 .header.active {
-    color: black;
+    background: white;
+    position: fixed;
 }
 
 .imgwrap {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .companylogo {
@@ -57,9 +65,14 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background: blue;
     padding: 15px;
     transition: .6s ease;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.header.active .head-section1{
+    display: none;
 }
 
 .head-top-content {
@@ -71,6 +84,12 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    border-left: 1px solid gray;
+    padding-left: 10px;
+}
+
+.head-details:first-child {
+    border: none;
 }
 
 .head-details div {
@@ -82,6 +101,7 @@ body {
 .head-details p {
     font-size: 14px;
     color: white;
+
 }
 
 .head-details a {
@@ -92,6 +112,7 @@ body {
 
 .head-details span {
     font-size: 30px;
+    color: var(--pcolor);
 }
 
 .head-sotial-icons {
@@ -106,11 +127,13 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 25px;
-    background: white;
-    padding: 10 px;
+    background: #0c7cc76c;
+    color: var(--pcolor);
+    padding: 20px;
     border-radius: 50%;
     text-decoration: none;
 }
+
 
 /*section 2*/
 
@@ -118,8 +141,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: green;
     padding: 15px;
+    border-left: 1px solid gray;
+    width: 100%;
 }
 
 .nav-links {
@@ -133,6 +157,10 @@ body {
     font-size: 18px;
 }
 
+.header.active .nav-links a {
+    color: black;
+}
+
 .head-icons {
     display: flex;
     gap: 15px;
@@ -142,6 +170,15 @@ body {
     padding: 5px;
     font-weight: 500;
     font-size: 23px;
+    color: white;
+}
+
+.header.active .head-icons span  {
+    color: black;
+}
+
+.header.active .head-icons span:last-child{
+     border-color: black;
 }
 
 .head-icons span:last-child {
@@ -157,8 +194,8 @@ body {
     right: 0;
     top: 0;
     height: 100vh;
-    width: 320px;
-    background: rgb(100, 100, 100);
+    width: 450px;
+    background: white;
     padding: 20px;
     transition: .6s ease;
     transform: translateX(100%);
@@ -167,7 +204,7 @@ body {
 }
 
 
-.head-side-bar div{
+.head-side-bar div {
     margin-bottom: 30px;
 }
 
@@ -186,7 +223,7 @@ body {
 
 .sidelogo-wrap {
     padding-block: 10px;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid gray;
     margin-bottom: 20px;
 }
 
@@ -213,9 +250,10 @@ body {
 
 .side-about-us p {
     line-height: 1.3;
-    font-size: 15px;
+    font-size: 14px;
     text-align: justify;
     margin-bottom: 20px;
+    color: rgb(83, 83, 83);
 }
 
 .head-info {
@@ -239,11 +277,13 @@ body {
     align-items: center;
     text-decoration: none;
     gap: 10px;
+    color: rgb(83, 83, 83);
     font-size: 14px;
 }
 
 .side-contacts a span {
     font-size: 18px;
+    color: var(--pcolor);
 }
 
 .side-head-sotial h3 {
@@ -258,18 +298,21 @@ body {
 
 .side-sotial-icons a {
     font-size: 25px;
-    background: white;
+    background: var(--pcolor);
     border-radius: 50%;
-    height: 35px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
 }
+.side-sotial-icons a i{
+    color: white;
+}
 
 
-@media (max-width:1160px) {
+@media (max-width:1210px) {
 
     .head-section1 {
         justify-content: flex-end;
@@ -339,6 +382,10 @@ body {
     .sidelinks {
         display: flex;
     }
+
+    .sidelinks a{
+        color: black;
+    }
 }
 
 
@@ -349,7 +396,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    background: #1F1F1F;
+    background: linear-gradient(125deg,#115c8dd5,#0c729bd5),url("./src/footerbg.webp");
     padding-inline: 20px;
 }
 
@@ -364,7 +411,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid white;
 }
 
 .footerform {
@@ -376,13 +423,25 @@ body {
     min-width: 280px;
     width: 100%;
     border: none;
+    background: white;
+    color: black;
+      border-radius: 7px;
+}
+
+
+.footerform input:focus{
+    outline: none;
 }
 
 .footerform button {
     position: absolute;
-    right: 2px;
+    right: 4px;
     top: 50%;
     padding: 11px 20px;
+    background: var(--pcolor);
+    border: none;
+    color: white;
+    border-radius: 7px;
     transform: translateY(-50%);
 }
 
@@ -401,6 +460,15 @@ body {
 .fsec1 h2 {
     font-size: 22px;
     margin-bottom: 20px;
+    color: white;
+}
+
+.fsec1 h1{
+    font-family: "Inter", sans-serif;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    font-size: 40px;
+
 }
 
 .fsec1 p {
@@ -408,6 +476,7 @@ body {
     font-size: 15px;
     max-width: 260px;
     margin-bottom: 20px;
+    color:  rgba(248, 244, 244, 0.849);
 
 }
 
@@ -415,6 +484,7 @@ body {
 .fersec2 h2 {
     font-size: 22px;
     margin-bottom: 20px;
+    color: white;
 }
 
 
@@ -430,10 +500,11 @@ body {
     align-items: center;
     text-decoration: none;
     font-size: 15px;
+      color: rgba(248, 244, 244, 0.849);
     gap: 3px;
 }
 
-.footerlinks a:hover .farrow{
+.footerlinks a:hover .farrow {
     display: block;
 }
 
@@ -452,10 +523,17 @@ body {
 }
 
 .footer-sotial-icons a {
-    padding: 2px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     font-size: 26px;
-    background: white;
-    border-radius: 4px;
+    color: var(--pcolor);
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+
 }
 
 /* footer 2 */
@@ -464,7 +542,7 @@ body {
     width: 100%;
     padding-block: 30px;
     text-align: center;
-    border-top: 1px solid gray;
+    border-top: 1px solid white;
 }
 
 .footer2 p {
@@ -473,6 +551,10 @@ body {
 }
 
 @media (max-width:1080px) {
+
+    .head-side-bar {
+        width: 320px;
+    }
     .footer1 {
         grid-template-columns: 1fr 1fr 1fr;
     }
