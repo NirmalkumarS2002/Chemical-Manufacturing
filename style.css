@@ -21,11 +21,13 @@ body {
 .header {
     background: red;
     display: flex;
+    position: absolute;
     align-items: center;
     padding-inline: 20px;
     overflow-x: hidden;
     width: 100%;
     transition: .6s ease;
+    z-index: 9999;
 
 }
 
@@ -83,7 +85,7 @@ body {
 }
 
 .head-details a {
-    font-size: clamp(17px, 1.8vw, 20px);
+    font-size: clamp(17px, 1.8vw, 18px);
     color: white;
     text-decoration: none;
 }
@@ -165,6 +167,10 @@ body {
 }
 
 
+.head-side-bar div{
+    margin-bottom: 30px;
+}
+
 
 .head-side-bar.active {
     transform: translateX(0);
@@ -196,18 +202,18 @@ body {
 }
 
 .sidelinks a {
-    font-size: 18px;
+    font-size: 15px;
     text-decoration: none;
 }
 
 .side-about-us h3 {
-    font-size: 25px;
+    font-size: 23px;
     margin-bottom: 10px;
 }
 
 .side-about-us p {
     line-height: 1.3;
-    font-size: 16px;
+    font-size: 15px;
     text-align: justify;
     margin-bottom: 20px;
 }
@@ -233,11 +239,11 @@ body {
     align-items: center;
     text-decoration: none;
     gap: 10px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .side-contacts a span {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .side-head-sotial h3 {
@@ -335,18 +341,6 @@ body {
     }
 }
 
-.hero {
-    width: 100%;
-    height: 100vh;
-    background: gray;
-}
-
-
-.abt {
-    width: 100%;
-    height: 100vh;
-    background: red;
-}
 
 
 /* footer */
@@ -439,8 +433,13 @@ body {
     gap: 3px;
 }
 
-.footerlinks a span {
+.footerlinks a:hover .farrow{
+    display: block;
+}
+
+.farrow {
     font-size: 20px;
+    display: none;
 }
 
 .fersec2 .footerlinks {

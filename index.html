@@ -13,9 +13,311 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
     <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
 </head>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    .herosection {
+        background: gray;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 100px;
+        margin-top: 70px;
+        background: linear-gradient(125deg, rgba(0, 0, 0, 0.575), rgba(0, 0, 0, 0.705)), url("./src/hero-bg2.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .hero-text h6 {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: clamp(12px, 1.4vw, 16px);
+        color: white;
+    }
+
+    .hero-text h6 span {
+        font-size: 22px;
+    }
+
+    .hero-text>h1 {
+        font-weight: 400;
+        font-size: 130px;
+        color: white;
+    }
+
+    .arrow-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .arrow {
+        width: 95px;
+        height: 85px;
+    }
+
+    .arrow-container h1 {
+        font-family: "Inter", sans-serif;
+        font-size: 150px;
+        font-weight: 500;
+        color: transparent;
+        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+        transform: .3s ease;
+        animation: swin 3s ease-in-out infinite;
+
+    }
+
+    @keyframes swin {
+        from {
+            transform: translateX(100);
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /*circle image*/
+
+    .circle-container {
+        display: flex;
+        align-items: center;
+        gap: clamp(5px, 1vw, 20px);
+    }
+
+    .circle-container p {
+        max-width: 450px;
+        line-height: 1.6;
+        font-size: 16px;
+        color: white;
+    }
+
+    .circle-text {
+        position: relative;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .circleimage {
+        width: 120px;
+        animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+        form {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .circle-btn {
+        position: absolute;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        border: none;
+    }
+
+    .circle-btn span {
+        font-size: 26px;
+    }
+
+    .sidebuttons {
+        position: absolute;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .sidebuttons button {
+        height: 60px;
+        width: 60px;
+    }
+
+    .sidebuttons button span {
+        font-size: 23px
+    }
+
+    @media (max-width:1120px) {
+        .hero-text>h1 {
+            font-size: 100px;
+        }
+
+        .arrow-container h1 {
+            font-size: 110px;
+        }
+
+        .arrow {
+            width: 65px;
+            height: 55px;
+        }
+
+
+
+    }
+
+    @media (max-width:840px) {
+
+        .herosection {
+            padding-left: 50px;
+        }
+
+        .hero-text>h1 {
+            font-size: 70px;
+        }
+
+        .arrow-container h1 {
+            font-size: 80px;
+        }
+
+        .arrow {
+            width: 45px;
+            height: 35px;
+
+        }
+
+
+        .circle-container p {
+            font-size: 14px;
+        }
+
+
+        .circleimage {
+            width: 90px;
+        }
+
+        .circle-btn {
+            height: 40px;
+            width: 40px;
+        }
+
+        .circle-btn span {
+            font-size: 22px;
+        }
+
+        .sidebuttons button {
+            height: 50px;
+            width: 50px;
+        }
+
+        .sidebuttons button span {
+            font-size: 23px;
+        }
+
+    }
+
+
+    @media (max-width:630px) {
+
+        .herosection {
+            padding-left: 0;
+            padding: 10px;
+            margin-top: 0px;
+        }
+
+        .hero-text>h1 {
+            font-size: 50px;
+        }
+
+        .arrow-container h1 {
+            font-size: 60px;
+        }
+
+        .arrow {
+            width: 40px;
+            height: 30px;
+
+        }
+
+        .circle-container p {
+            font-size: 13px;
+        }
+
+
+        .circleimage {
+            width: 80px;
+        }
+
+
+        .circle-btn {
+            height: 35px;
+            width: 35px;
+        }
+
+        .circle-btn span {
+            font-size: 19px;
+        }
+
+        .sidebuttons button {
+            display: none;
+        }
+
+
+
+    }
+
+    @media (max-width:500px) {
+        .hero-text>h1 {
+            font-size: 40px;
+        }
+
+        .arrow-container h1 {
+            font-size: 50px;
+        }
+
+        .arrow {
+            width: 35px;
+            height: 25px;
+
+        }
+
+        .circle-container p {
+            font-size: 9px;
+        }
+
+
+        .circleimage {
+            width: 60px;
+        }
+
+        .circle-btn {
+            height: 30px;
+            width: 30px;
+        }
+
+        .circle-btn span {
+            font-size: 19px;
+        }
+    }
+</style>
 
 <body>
 
@@ -137,8 +439,38 @@
         </div>
     </header>
 
-    <div class="hero">
+    <div class="herosection">
+        <div class="hero-text">
+            <h6><span class="material-symbols-outlined">experiment</span>Welcome to Our Industrie</h6>
+            <h1> Reliable</h1>
 
+            <div class="arrow-container">
+                <img src="./src/Arrow.webp" alt="" class="arrow">
+                <h1>Chemicals</h1>
+            </div>
+
+
+            <div class="circle-container">
+
+                <div class="circle-text">
+
+                    <img src="./src/Circlex.webp" class="circleimage">
+
+                    <button class="circle-btn"><span class="material-symbols-outlined">arrow_right_alt</span></button>
+                </div>
+
+                <p>Welcomt to industrie,a leading industry innovator with
+                    a rich history of excellence . with a pasionfor prcision
+                    and a commitment to quality...</p>
+
+            </div>
+
+        </div>
+
+        <div class="sidebuttons">
+            <button><span class="material-symbols-outlined">arrow_right_alt</span></button>
+            <button><span class="material-symbols-outlined">arrow_left_alt</span></button>
+        </div>
     </div>
 
     <footer class="footer">
@@ -156,7 +488,7 @@
 
             <div class="fsec1">
 
-                <h2>Hbout Company</h2>
+                <h2>About Company</h2>
 
                 <p>We strive to build long-term partnerships
                     through excellence and customer
@@ -171,11 +503,11 @@
 
                 <div class="footerlinks">
 
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>Home</a>
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>About</a>
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>Page</a>
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>Blog</a>
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>Contact</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>Home</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>About</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>Page</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>Blog</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>Contact</a>
 
                 </div>
             </div>
@@ -185,11 +517,11 @@
 
                 <div class="footerlinks">
 
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>Service</a>
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>Pricing</a>
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>Team</a>
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>Terms & conditions</a>
-                    <a href=""><span class="material-symbols-outlined">arrow_forward</span>Privacy Policy</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>Service</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>Pricing</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>Team</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>Terms & conditions</a>
+                    <a href=""><span class="material-symbols-outlined farrow">arrow_forward</span>Privacy Policy</a>
 
                 </div>
             </div>
