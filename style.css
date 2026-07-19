@@ -277,6 +277,17 @@ body {
 .sidelinks a {
     font-size: 15px;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidelinks a span{
+    font-size: 20px;
+}
+
+.sidelinks a:hover{
+    color: var(--pcolor);
 }
 
 
