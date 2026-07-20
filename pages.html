@@ -1,0 +1,547 @@
+<!-- ============================================================
+     Stackly Chemical Manufacturing — 6 "Pages" Hub Sections
+     Theme-matched: same --pcolor / --scolor variables, Sora + Inter
+     fonts, Material Symbols icons. NO navbar, NO footer included.
+     Paste this block into your Pages page between header & footer.
+     ============================================================ -->
+
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,-50..200" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --pcolor: #0D80CE;
+        --scolor: #132340;
+        --bcolor: rgba(175, 175, 175, 0.834);
+    }
+
+    .sp-section * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .sp-section {
+        font-family: "Inter", sans-serif;
+        color: var(--scolor);
+        overflow-x: hidden;
+    }
+
+    .sp-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Sora", sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--pcolor);
+        margin-bottom: 12px;
+    }
+
+    .sp-eyebrow span {
+        font-size: 20px;
+    }
+
+    .sp-btn-solid, .sp-btn-outline {
+        padding: 15px 34px;
+        border-radius: 7px;
+        font-size: 15px;
+        font-family: "Inter", sans-serif;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: .5s ease;
+    }
+
+    .sp-btn-solid {
+        background: var(--pcolor);
+        color: white;
+        border: 1px solid var(--pcolor);
+    }
+
+    .sp-btn-solid:hover {
+        background: var(--scolor);
+        border-color: var(--scolor);
+    }
+
+    .sp-btn-outline {
+        background: transparent;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .sp-btn-outline:hover {
+        background: white;
+        color: var(--scolor);
+    }
+
+    /* ============ 1. PAGES HERO ============ */
+    .sp-hero {
+        position: relative;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        padding: 60px 80px;
+        background:
+            linear-gradient(115deg, rgba(10, 20, 40, 0.85), rgba(13, 128, 206, 0.5)),
+            url("https://images.unsplash.com/photo-1589725971211-7e86a631e2c2?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    }
+
+    .sp-hero-inner {
+        max-width: 640px;
+    }
+
+    .sp-hero h1 {
+        font-family: "Sora", sans-serif;
+        font-weight: 500;
+        font-size: clamp(30px, 4vw, 48px);
+        color: white;
+        line-height: 1.15;
+        margin-bottom: 16px;
+    }
+
+    .sp-hero p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 16px;
+        line-height: 1.7;
+        max-width: 540px;
+    }
+
+    @media (max-width:900px) { .sp-hero { padding: 40px; min-height: 300px; } }
+    @media (max-width:560px) { .sp-hero { padding: 25px; } }
+
+    /* ============ 2. CORE PAGES GRID ============ */
+    .sp-core {
+        padding: 90px 80px;
+        background: white;
+    }
+
+    .sp-core-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 45px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .sp-core-head h2 {
+        font-family: "Sora", sans-serif;
+        font-weight: 500;
+        font-size: clamp(28px, 3vw, 40px);
+        max-width: 520px;
+    }
+
+    .sp-core-head p {
+        max-width: 400px;
+        font-size: 15px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .sp-core-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .sp-core-card {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 300px;
+        display: flex;
+        align-items: flex-end;
+        text-decoration: none;
+    }
+
+    .sp-core-card img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: .6s ease;
+    }
+
+    .sp-core-card:hover img {
+        transform: scale(1.08);
+    }
+
+    .sp-core-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(19,35,64,0) 35%, rgba(9,15,28,0.9) 100%);
+    }
+
+    .sp-core-card-text {
+        position: relative;
+        z-index: 1;
+        padding: 24px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .sp-core-card-text h4 {
+        font-family: "Sora", sans-serif;
+        font-size: 19px;
+    }
+
+    .sp-core-card-text span {
+        font-size: 22px;
+        transition: .4s ease;
+    }
+
+    .sp-core-card:hover .sp-core-card-text span {
+        transform: translateX(6px);
+    }
+
+    @media (max-width:1080px) {
+        .sp-core { padding: 60px 30px; }
+        .sp-core-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width:560px) {
+        .sp-core-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============ 3. COMPANY PAGES LIST ============ */
+    .sp-company {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: var(--scolor);
+    }
+
+    .sp-company-img {
+        background: url("https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+        min-height: 480px;
+    }
+
+    .sp-company-content {
+        padding: 70px;
+    }
+
+    .sp-company-content h2 {
+        font-family: "Sora", sans-serif;
+        font-weight: 500;
+        font-size: clamp(26px, 3vw, 34px);
+        color: white;
+        margin-bottom: 30px;
+        line-height: 1.2;
+    }
+
+    .sp-company-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sp-company-list a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        color: white;
+        transition: .4s ease;
+    }
+
+    .sp-company-list a:hover {
+        padding-left: 10px;
+        color: var(--pcolor);
+    }
+
+    .sp-company-list a h5 {
+        font-family: "Sora", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .sp-company-list a span {
+        font-size: 22px;
+    }
+
+    @media (max-width:900px) {
+        .sp-company { grid-template-columns: 1fr; }
+        .sp-company-img { min-height: 260px; }
+        .sp-company-content { padding: 45px 30px; }
+    }
+
+    /* ============ 4. UTILITY PAGES ============ */
+    .sp-utility {
+        padding: 90px 80px;
+        background: #f7f8fa;
+        text-align: center;
+    }
+
+    .sp-utility-head {
+        max-width: 600px;
+        margin: 0 auto 50px auto;
+    }
+
+    .sp-utility-head h2 {
+        font-family: "Sora", sans-serif;
+        font-weight: 500;
+        font-size: clamp(28px, 3vw, 38px);
+        margin-bottom: 12px;
+    }
+
+    .sp-utility-head p {
+        font-size: 15px;
+        color: #555;
+    }
+
+    .sp-utility-row {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+        text-align: left;
+    }
+
+    .sp-utility-card {
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 26px 18px;
+        text-decoration: none;
+        color: var(--scolor);
+        transition: .5s ease;
+        display: block;
+    }
+
+    .sp-utility-card:hover {
+        border-color: var(--pcolor);
+        transform: translateY(-6px);
+        box-shadow: 0 15px 30px rgba(13,128,206,0.12);
+    }
+
+    .sp-utility-card span {
+        font-size: 26px;
+        color: var(--pcolor);
+        margin-bottom: 14px;
+        display: block;
+    }
+
+    .sp-utility-card h5 {
+        font-family: "Sora", sans-serif;
+        font-size: 14.5px;
+    }
+
+    @media (max-width:1080px) {
+        .sp-utility { padding: 60px 30px; }
+        .sp-utility-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width:560px) {
+        .sp-utility-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ============ 5. FEATURED PAGE SPOTLIGHT ============ */
+    .sp-spotlight {
+        position: relative;
+        padding: 90px 80px;
+        display: flex;
+        align-items: center;
+        min-height: 420px;
+        background:
+            linear-gradient(115deg, rgba(10, 20, 40, 0.55), rgba(13, 128, 206, 0.72)),
+            url("https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    }
+
+    .sp-spotlight-inner {
+        max-width: 620px;
+    }
+
+    .sp-spotlight h6.sp-eyebrow {
+        color: white;
+    }
+
+    .sp-spotlight h2 {
+        font-family: "Sora", sans-serif;
+        font-weight: 500;
+        font-size: clamp(28px, 3.5vw, 42px);
+        color: white;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+
+    .sp-spotlight p {
+        color: rgba(255,255,255,0.88);
+        font-size: 15.5px;
+        line-height: 1.7;
+        margin-bottom: 28px;
+        max-width: 500px;
+    }
+
+    @media (max-width:900px) { .sp-spotlight { padding: 55px 30px; } }
+
+    /* ============ 6. CTA BANNER ============ */
+    .sp-cta {
+        padding: 80px;
+        text-align: center;
+        background: white;
+        border-top: 1px solid #eee;
+    }
+
+    .sp-cta h2 {
+        font-family: "Sora", sans-serif;
+        font-weight: 500;
+        font-size: clamp(26px, 3.5vw, 38px);
+        max-width: 620px;
+        margin: 0 auto 16px auto;
+        line-height: 1.2;
+    }
+
+    .sp-cta p {
+        font-size: 15px;
+        color: #666;
+        max-width: 480px;
+        margin: 0 auto 30px auto;
+        line-height: 1.6;
+    }
+
+    .sp-cta-btns {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .sp-cta .sp-btn-outline {
+        color: var(--scolor);
+        border: 1px solid #ccc;
+    }
+
+    .sp-cta .sp-btn-outline:hover {
+        background: var(--scolor);
+        color: white;
+        border-color: var(--scolor);
+    }
+
+    @media (max-width:900px) { .sp-cta { padding: 55px 25px; } }
+</style>
+
+<div class="sp-section">
+
+    <!-- 1. PAGES HERO -->
+    <section class="sp-hero">
+        <div class="sp-hero-inner">
+            <h6 class="sp-eyebrow"><span class="material-symbols-outlined">grid_view</span>Site Pages</h6>
+            <h1>Explore Everything Stackly Has to Offer</h1>
+            <p>A quick directory of our core, company and utility pages, so you can find what you need in one click.</p>
+        </div>
+    </section>
+
+    <!-- 2. CORE PAGES GRID -->
+    <section class="sp-core">
+        <div class="sp-core-head">
+            <div>
+                <h6 class="sp-eyebrow"><span class="material-symbols-outlined">apps</span>Core Pages</h6>
+                <h2>Start Here</h2>
+            </div>
+            <p>The pages most visitors look for first, covering who we are and what we manufacture.</p>
+        </div>
+        <div class="sp-core-grid">
+            <a href="index.html" class="sp-core-card">
+                <img src="https://images.unsplash.com/photo-1588011930968-eadac80e6a5a?auto=format&fit=crop&w=800&q=80" alt="Home">
+                <div class="sp-core-card-text"><h4>Home</h4><span class="material-symbols-outlined">arrow_right_alt</span></div>
+            </a>
+            <a href="about.html" class="sp-core-card">
+                <img src="https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&w=800&q=80" alt="About">
+                <div class="sp-core-card-text"><h4>About Us</h4><span class="material-symbols-outlined">arrow_right_alt</span></div>
+            </a>
+            <a href="404.html" class="sp-core-card">
+                <img src="https://images.unsplash.com/photo-1614283226124-5a2f0f23752b?auto=format&fit=crop&w=800&q=80" alt="Products">
+                <div class="sp-core-card-text"><h4>Products</h4><span class="material-symbols-outlined">arrow_right_alt</span></div>
+            </a>
+            <a href="404.html" class="sp-core-card">
+                <img src="https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=800&q=80" alt="Services">
+                <div class="sp-core-card-text"><h4>Services</h4><span class="material-symbols-outlined">arrow_right_alt</span></div>
+            </a>
+            <a href="blog.html" class="sp-core-card">
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80" alt="Blog">
+                <div class="sp-core-card-text"><h4>Blog</h4><span class="material-symbols-outlined">arrow_right_alt</span></div>
+            </a>
+            <a href="contact.html" class="sp-core-card">
+                <img src="https://images.unsplash.com/photo-1636747423727-2d39d0aa9796?auto=format&fit=crop&w=800&q=80" alt="Contact">
+                <div class="sp-core-card-text"><h4>Contact</h4><span class="material-symbols-outlined">arrow_right_alt</span></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. COMPANY PAGES LIST -->
+    <section class="sp-company">
+        <div class="sp-company-img"></div>
+        <div class="sp-company-content">
+            <h6 class="sp-eyebrow" style="color: var(--pcolor);"><span class="material-symbols-outlined">domain</span>Company</h6>
+            <h2>Pages About Our People &amp; Work</h2>
+            <div class="sp-company-list">
+                <a href="404.html"><h5>Our Team</h5><span class="material-symbols-outlined">arrow_right_alt</span></a>
+                <a href="404.html"><h5>Careers</h5><span class="material-symbols-outlined">arrow_right_alt</span></a>
+                <a href="404.html"><h5>Testimonials</h5><span class="material-symbols-outlined">arrow_right_alt</span></a>
+                <a href="404.html"><h5>Gallery</h5><span class="material-symbols-outlined">arrow_right_alt</span></a>
+                <a href="404.html"><h5>Certifications</h5><span class="material-symbols-outlined">arrow_right_alt</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. UTILITY PAGES -->
+    <section class="sp-utility">
+        <div class="sp-utility-head">
+            <h6 class="sp-eyebrow" style="justify-content:center;"><span class="material-symbols-outlined">settings</span>Utility Pages</h6>
+            <h2>Support &amp; Policy Pages</h2>
+            <p>Reference pages for pricing, questions and legal information.</p>
+        </div>
+        <div class="sp-utility-row">
+            <a href="404.html" class="sp-utility-card">
+                <span class="material-symbols-outlined">sell</span>
+                <h5>Pricing</h5>
+            </a>
+            <a href="404.html" class="sp-utility-card">
+                <span class="material-symbols-outlined">quiz</span>
+                <h5>FAQ</h5>
+            </a>
+            <a href="404.html" class="sp-utility-card">
+                <span class="material-symbols-outlined">gavel</span>
+                <h5>Terms &amp; Conditions</h5>
+            </a>
+            <a href="404.html" class="sp-utility-card">
+                <span class="material-symbols-outlined">privacy_tip</span>
+                <h5>Privacy Policy</h5>
+            </a>
+            <a href="404.html" class="sp-utility-card">
+                <span class="material-symbols-outlined">error</span>
+                <h5>404 Error Page</h5>
+            </a>
+        </div>
+    </section>
+
+    <!-- 5. FEATURED PAGE SPOTLIGHT -->
+    <section class="sp-spotlight">
+        <div class="sp-spotlight-inner">
+            <h6 class="sp-eyebrow"><span class="material-symbols-outlined">stars</span>Featured</h6>
+            <h2>See How Our Products Are Made</h2>
+            <p>Take a closer look at our manufacturing process, from formulation to dispatch, on our Services page.</p>
+            <a href="404.html" class="sp-btn-solid">Visit Services Page<span class="material-symbols-outlined">arrow_right_alt</span></a>
+        </div>
+    </section>
+
+    <!-- 6. CTA BANNER -->
+    <section class="sp-cta">
+        <h2>Can't Find the Page You're Looking For?</h2>
+        <p>Reach out to our team directly and we'll point you in the right direction.</p>
+        <div class="sp-cta-btns">
+            <a href="contact.html" class="sp-btn-solid">Contact Us<span class="material-symbols-outlined">arrow_right_alt</span></a>
+            <a href="index.html" class="sp-btn-outline">Back to Home</a>
+        </div>
+    </section>
+
+</div>

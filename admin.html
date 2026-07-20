@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Chemical Manufacturing Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #edf3f9;
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #0D80CE, #132340);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            transition: 0.3s;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            width: 160px;
+        }
+
+        .close-btn {
+            display: none;
+            font-size: 22px;
+            color: #0D80CE;
+            cursor: pointer;
+        }
+
+        .menu {
+            list-style: none;
+        }
+
+        .menu li {
+            margin-bottom: 8px;
+        }
+
+        .menu li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #d1d1d1;
+            transition: 0.3s;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .menu li a:hover,
+        .menu li.active a {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .main {
+            flex: 1;
+            overflow: auto;
+        }
+
+        .topbar {
+            height: 70px;
+            background: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-btn {
+            display: none;
+            color: #0D80CE;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .topbar h2 {
+            color: #0f172a;
+            font-size: 18px;
+        }
+
+        .admin-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #0f172a;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(13, 128, 206, .25);
+            flex-shrink: 0;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .gold {
+            background: rgba(13, 128, 206, 0.15);
+            color: #0D80CE;
+        }
+
+        .blue {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+        }
+
+        .green {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+        }
+
+        .red {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+        }
+
+        .purple {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+        }
+
+        .orange {
+            background: rgba(249, 115, 22, 0.15);
+            color: #fb923c;
+        }
+
+        .card h2 {
+            color: #0f172a;
+            margin-bottom: 4px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #131212bd;
+            font-size: 13px;
+        }
+
+        .table-box {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: auto;
+            margin-bottom: 20px;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .table-header h2 {
+            color: #0f172a;
+            font-size: 16px;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg,
+                    #0D80CE,
+                    #14b8a6);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+            box-shadow: 0 8px 20px rgba(13, 128, 206, .25);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(13, 128, 206, .35);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(13, 128, 206, 0.726);
+            background: transparent;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 13px;
+            color: #0D80CE;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 550px;
+        }
+
+        table th {
+            text-align: left;
+            padding: 12px;
+            color: #0D80CE;
+            font-size: 13px;
+        }
+
+        table td {
+            padding: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #131212bd;
+
+            font-size: 13px;
+        }
+
+        .table-avatar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-avatar-wrap img {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .product-thumb {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .s-active {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+        }
+
+        .s-pending {
+            background: rgba(245, 158, 11, 0.15);
+            color: #facc15;
+        }
+
+        .s-closed {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+        }
+
+        .s-blue {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+        }
+
+        .s-purple {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+        }
+
+        .page-title {
+            color: #0f172a;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .page-sub {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .info-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-box h3 {
+            color: #0D80CE;
+            font-size: 14px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #888;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-label .material-symbols-outlined {
+            font-size: 16px;
+            color: #0D80CE;
+        }
+
+        .info-value {
+            color: #d1d1d1;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .client-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .client-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0D80CE, #132340);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: white;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .client-name {
+            color: #0f172a;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .client-case {
+            color: #888;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .setting-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 18px;
+        }
+
+        .setting-section h3 {
+            color: #0D80CE;
+            font-size: 15px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .setting-row:last-child {
+            border-bottom: none;
+        }
+
+        .setting-label {
+            color: black;
+            font-size: 14px;
+        }
+
+        .setting-desc {
+            color: #666;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        .toggle {
+            width: 44px;
+            height: 24px;
+            border-radius: 20px;
+            background: #333;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s;
+            flex-shrink: 0;
+        }
+
+        .toggle.on {
+            background: #0D80CE;
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: white;
+            top: 3px;
+            left: 3px;
+            transition: 0.3s;
+        }
+
+        .toggle.on::after {
+            left: 23px;
+        }
+
+        .input-field {
+            background: #e8f4fc;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: #555555;
+            font-size: 13px;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+
+
+        .passbox {
+            position: relative;
+        }
+
+        .pass-icon {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px
+        }
+
+
+        input[type="password"]::-ms-reveal,
+        input[type="password"]::-ms-clear,
+        input[type="password"]::-webkit-textfield-decoration-container {
+            display: none !important;
+        }
+
+        .input-field:focus {
+            border-color: rgba(13, 128, 206, 0.4);
+        }
+
+        .meeting-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 14px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .meeting-date {
+            background: rgba(13, 128, 206, 0.12);
+            border-radius: 12px;
+            padding: 12px 14px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .meeting-day {
+            color: #0D80CE;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .meeting-month {
+            color: #132340;
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+        .meeting-title {
+            color: #0f172a;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .meeting-meta {
+            color: #888;
+            font-size: 12px;
+            margin-top: 5px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .report-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 14px;
+        }
+
+        .report-title {
+            color: #0f172a;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            border-radius: 20px;
+            height: 8px;
+            margin: 8px 0 4px;
+            background: rgba(13, 128, 206, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #132340, #0D80CE);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 12px;
+        }
+
+        @media(max-width:768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .close-btn {
+                display: block;
+            }
+
+            .sidebar {
+                position: fixed;
+                left: -270px;
+                top: 0;
+                width: 260px;
+                height: 100vh;
+                z-index: 999;
+            }
+
+            .sidebar.showSidebar {
+                left: 0;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+
+        }
+
+        @media(max-width:500px) {
+
+            .admin-info h4,
+            .admin-info p {
+                display: none;
+            }
+
+            .meeting-card {
+                flex-direction: column;
+
+            }
+
+            .avatar {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+
+            <a href="admin.html"><img src="./src/logo.webp" alt="company logo"></a>
+
+            <span class="close-btn" id="closeBtn"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+        <ul class="menu">
+            <li class="active" data-page="dashboard"><a><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+            <li data-page="clients"><a><i class="fa-solid fa-users"></i> Clients</a></li>
+            <li data-page="projects"><a><i class="fa-solid fa-diagram-project"></i> Inventory</a></li>
+            <li data-page="meetings"><a><i class="fa-solid fa-calendar-check"></i> Orders & Deliveries</a></li>
+            <li data-page="reports"><a><i class="fa-solid fa-chart-pie"></i> Sales & Analytics
+                </a></li>
+            <!-- <li data-page="settings"><a><i class="fa-solid fa-gear"></i> Settings</a></li> -->
+            <li id="logoutItem"><a><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div class="topbar-left">
+                <div class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></div>
+                <h2 id="pageTitle">Dashboard</h2>
+            </div>
+            <div class="admin-info">
+                <img class="avatar" id="avatarEl"
+                    src="https://images.unsplash.com/photo-1652471943570-f3590a4e52ed?auto=format&fit=crop&w=100&q=80"
+                    alt="Admin avatar">
+                <div>
+                    <h4 id="adminEmail">admin@stackly.com</h4>
+                    <p style="color:#888;font-size:12px;">Administrator</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== DASHBOARD ===== -->
+        <div class="content active" id="page-dashboard">
+            <div style="padding:22px 22px 0;">
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon gold">
+                            <i class="fa-solid fa-industry"></i>
+                        </div>
+                        <div>
+                            <h2>1,240</h2>
+                            <p>Total Clients</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon blue">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <div>
+                            <h2>342</h2>
+                            <p>Active Orders</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon green">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <div>
+                            <h2>1,180</h2>
+                            <p>Batches Quality-Tested</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon red">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <div>
+                            <h2>₹68.2L</h2>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon gold">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <div>
+                            <h2>18</h2>
+                            <p>New Clients</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon blue">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+                        <div>
+                            <h2>42</h2>
+                            <p>Today's Orders</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon green">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+                        <div>
+                            <h2>310</h2>
+                            <p>Batch Records</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon red">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <div>
+                            <h2>96</h2>
+                            <p>Chemicals Shipped Today</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding:0 22px 22px;">
+                <div class="table-box">
+                    <div class="table-header">
+                        <h2>Manufacturing Team</h2>
+                        <button class="btn-gold errorpage">+ Add Employee</button>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <div class="table-avatar-wrap">
+                                        <img src="https://images.unsplash.com/photo-1652471943570-f3590a4e52ed?auto=format&fit=crop&w=100&q=80" alt="John Smith">
+                                        Dr. John Smith
+                                    </div>
+                                </td>
+                                <td>Quality Control</td>
+                                <td>john@stackly.com</td>
+                                <td>
+                                    <span class="status s-active">
+                                        Available
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="table-avatar-wrap">
+                                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt="David Lee">
+                                        David Lee
+                                    </div>
+                                </td>
+                                <td>Production Manager</td>
+                                <td>david@stackly.com</td>
+                                <td>
+                                    <span class="status s-pending">
+                                        In Production
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="table-avatar-wrap">
+                                        <img src="https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?auto=format&fit=crop&w=100&q=80" alt="Alex Kumar">
+                                        Alex Kumar
+                                    </div>
+                                </td>
+                                <td>Inventory Manager</td>
+                                <td>alex@stackly.com</td>
+                                <td>
+                                    <span class="status s-active">
+                                        Available
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="table-avatar-wrap">
+                                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Priya Sharma">
+                                        Priya Sharma
+                                    </div>
+                                </td>
+                                <td>Research & Development</td>
+                                <td>priya@stackly.com</td>
+                                <td>
+                                    <span class="status s-active">
+                                        Active
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="table-avatar-wrap">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Michael Raj">
+                                        Michael Raj
+                                    </div>
+                                </td>
+                                <td>Regulatory Affairs</td>
+                                <td>michael@stackly.com</td>
+                                <td>
+                                    <span class="status s-closed">
+                                        On Leave
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-box">
+                    <div class="table-header">
+                        <h2>Recent Orders</h2>
+                        <button class="btn-gold errorpage">+ New Order</button>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Product</th>
+                                <th>Status</th>
+                                <th>Delivery Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Apollo Textiles Ltd</td>
+                                <td>Industrial Solvent X40</td>
+                                <td>
+                                    <span class="status s-active">
+                                        Delivered
+                                    </span>
+                                </td>
+                                <td>15 Jun 2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>MedPlus Agro Industries</td>
+                                <td>AgroBoost NPK 25</td>
+                                <td>
+                                    <span class="status s-pending">
+                                        Processing
+                                    </span>
+                                </td>
+                                <td>18 Jun 2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>Global Textiles Corp</td>
+                                <td>ColorFix Dye 500</td>
+                                <td>
+                                    <span class="status s-active">
+                                        Shipped
+                                    </span>
+                                </td>
+                                <td>20 Jun 2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>Care Coatings Pvt Ltd</td>
+                                <td>ClearCoat Resin 100</td>
+                                <td>
+                                    <span class="status s-pending">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td>22 Jun 2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>City Construction Materials</td>
+                                <td>BondSet Adhesive 250</td>
+                                <td>
+                                    <span class="status s-closed">
+                                        Cancelled
+                                    </span>
+                                </td>
+                                <td>12 Jun 2026</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CLIENTS ===== -->
+        <div class="content" id="page-clients" style="padding:22px;">
+            <div class="page-title">Client Management</div>
+            <div class="page-sub">Manage all registered clients and their order details</div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon gold"><i class="fa-solid fa-users"></i></div>
+                    <div>
+                        <h2>1,245</h2>
+                        <p>Total Clients</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon green"><i class="fa-solid fa-user-check"></i></div>
+                    <div>
+                        <h2>987</h2>
+                        <p>Active Clients</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon blue"><i class="fa-solid fa-user-plus"></i></div>
+                    <div>
+                        <h2>54</h2>
+                        <p>New This Month</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon red"><i class="fa-solid fa-user-xmark"></i></div>
+                    <div>
+                        <h2>204</h2>
+                        <p>Inactive Clients</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table-box">
+                <div class="table-header">
+                    <h2>All Customers</h2>
+                    <div style="display:flex;gap:10px;">
+                        <button class="btn-outline errorpage">Export</button>
+                        <button class="btn-gold errorpage">+ Add Customer</button>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Phone</th>
+                            <th>Product Ordered</th>
+                            <th>Sales Executive</th>
+                            <th>Status</th>
+                            <th>Registered</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Apollo Textiles Ltd</td>
+                            <td>+91 98765 43210</td>
+                            <td>Industrial Solvent X40</td>
+                            <td>David Lee</td>
+                            <td><span class="status s-active">Active</span></td>
+                            <td>01 Jan 2026</td>
+                        </tr>
+
+                        <tr>
+                            <td>MedPlus Agro Industries</td>
+                            <td>+91 87654 32109</td>
+                            <td>AgroBoost NPK 25</td>
+                            <td>Alex Kumar</td>
+                            <td><span class="status s-active">Active</span></td>
+                            <td>10 Feb 2026</td>
+                        </tr>
+
+                        <tr>
+                            <td>Global Textiles Corp</td>
+                            <td>+91 76543 21098</td>
+                            <td>ClearCoat Resin 100</td>
+                            <td>John Smith</td>
+                            <td><span class="status s-pending">Pending</span></td>
+                            <td>15 Mar 2026</td>
+                        </tr>
+
+                        <tr>
+                            <td>Care Coatings Pvt Ltd</td>
+                            <td>+91 65432 10987</td>
+                            <td>ColorFix Dye 500</td>
+                            <td>David Lee</td>
+                            <td><span class="status s-active">Active</span></td>
+                            <td>20 Apr 2026</td>
+                        </tr>
+
+                        <tr>
+                            <td>LifeCare Packaging Ltd</td>
+                            <td>+91 54321 09876</td>
+                            <td>BondSet Adhesive 250</td>
+                            <td>Priya Sharma</td>
+                            <td><span class="status s-closed">Inactive</span></td>
+                            <td>05 May 2026</td>
+                        </tr>
+
+                        <tr>
+                            <td>City Construction Materials</td>
+                            <td>+91 43210 98765</td>
+                            <td>StoneGuard Sealant 500</td>
+                            <td>Alex Kumar</td>
+                            <td><span class="status s-pending">Under Review</span></td>
+                            <td>12 May 2026</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="grid-2">
+
+                <div class="info-box">
+                    <h3>
+                        <i class="fa-solid fa-industry"></i>
+                        Top Customers by Orders
+                    </h3>
+
+                    <div class="client-card">
+                        <div class="client-avatar">A</div>
+                        <div>
+                            <div class="client-name">Apollo Textiles Ltd</div>
+                            <div class="client-case">
+                                Industrial Solvent X40 • Active
+                            </div>
+                        </div>
+                        <span class="badge s-active">
+                            15 Orders
+                        </span>
+                    </div>
+
+                    <div class="client-card">
+                        <div class="client-avatar">M</div>
+                        <div>
+                            <div class="client-name">MedPlus Agro Industries</div>
+                            <div class="client-case">
+                                AgroBoost NPK 25 • Active
+                            </div>
+                        </div>
+                        <span class="badge s-blue">
+                            12 Orders
+                        </span>
+                    </div>
+
+                    <div class="client-card">
+                        <div class="client-avatar">G</div>
+                        <div>
+                            <div class="client-name">Global Textiles Corp</div>
+                            <div class="client-case">
+                                ClearCoat Resin 100 • Active
+                            </div>
+                        </div>
+                        <span class="badge s-active">
+                            10 Orders
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="info-box">
+
+                    <h3>
+                        <i class="fa-solid fa-chart-line"></i>
+                        Sales Summary
+                    </h3>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            Direct Industrial Orders
+                        </span>
+                        <span class="info-value">
+                            420
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            Distributor Orders
+                        </span>
+                        <span class="info-value">
+                            680
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            Online B2B Orders
+                        </span>
+                        <span class="info-value">
+                            390
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            Average Delivery Time
+                        </span>
+                        <span class="info-value">
+                            2.8 Days
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            Customer Retention Rate
+                        </span>
+                        <span class="info-value">
+                            92%
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== PROJECTS (INVENTORY) ===== -->
+        <div class="content" id="page-projects" style="padding:22px;">
+
+            <div class="page-title">Inventory Management</div>
+            <div class="page-sub">
+                Monitor chemical stock, batch tracking and inventory status
+            </div>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-icon blue">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <div>
+                        <h2>325</h2>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon gold">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+                    <div>
+                        <h2>88</h2>
+                        <p>Low Stock Items</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon green">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h2>198</h2>
+                        <p>Available Products</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon red">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div>
+                        <h2>45</h2>
+                        <p>Expiring Soon</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="table-box">
+
+                <div class="table-header">
+                    <h2>Chemical Inventory</h2>
+
+                    <div style="display:flex;gap:10px;">
+                        <button class="btn-outline errorpage">
+                            Filter
+                        </button>
+
+                        <button class="btn-gold errorpage">
+                            + Add Product
+                        </button>
+                    </div>
+
+                </div>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Batch ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Supplier</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Expiry Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>#CHM-1024</td>
+                            <td>
+                                <div class="table-avatar-wrap">
+                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1614283226124-5a2f0f23752b?auto=format&fit=crop&w=100&q=80" alt="Industrial Solvent X40">
+                                    Industrial Solvent X40
+                                </div>
+                            </td>
+                            <td>Solvents</td>
+                            <td>PetroChem Supplies</td>
+                            <td>1250</td>
+                            <td><span class="status s-active">Available</span></td>
+                            <td>15 Dec 2027</td>
+                        </tr>
+
+                        <tr>
+                            <td>#CHM-1023</td>
+                            <td>
+                                <div class="table-avatar-wrap">
+                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&w=100&q=80" alt="AgroBoost NPK 25">
+                                    AgroBoost NPK 25
+                                </div>
+                            </td>
+                            <td>Agro Chemicals</td>
+                            <td>GreenField Agro</td>
+                            <td>420</td>
+                            <td><span class="status s-pending">Low Stock</span></td>
+                            <td>20 Oct 2027</td>
+                        </tr>
+
+                        <tr>
+                            <td>#CHM-1022</td>
+                            <td>
+                                <div class="table-avatar-wrap">
+                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=100&q=80" alt="ColorFix Dye 500">
+                                    ColorFix Dye 500
+                                </div>
+                            </td>
+                            <td>Specialty Compounds</td>
+                            <td>ChromaTech Industries</td>
+                            <td>980</td>
+                            <td><span class="status s-active">Available</span></td>
+                            <td>11 Jan 2028</td>
+                        </tr>
+
+                        <tr>
+                            <td>#CHM-1021</td>
+                            <td>
+                                <div class="table-avatar-wrap">
+                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=100&q=80" alt="ClearCoat Resin 100">
+                                    ClearCoat Resin 100
+                                </div>
+                            </td>
+                            <td>Coatings</td>
+                            <td>ResinWorks Ltd</td>
+                            <td>160</td>
+                            <td><span class="status s-pending">Low Stock</span></td>
+                            <td>05 Aug 2027</td>
+                        </tr>
+
+                        <tr>
+                            <td>#CHM-1020</td>
+                            <td>
+                                <div class="table-avatar-wrap">
+                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=100&q=80" alt="BondSet Adhesive 250">
+                                    BondSet Adhesive 250
+                                </div>
+                            </td>
+                            <td>Adhesives</td>
+                            <td>BondTech Materials</td>
+                            <td>0</td>
+                            <td><span class="status s-closed">Out of Stock</span></td>
+                            <td>12 Jul 2027</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="grid-2">
+
+                <div class="info-box">
+
+                    <h3>
+                        <i class="fa-solid fa-chart-pie"></i>
+                        Product Category Breakdown
+                    </h3>
+
+                    <div class="info-row">
+                        <span class="info-label">Solvents</span>
+                        <span class="info-value">120</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Agro Chemicals</span>
+                        <span class="info-value">95</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Specialty Compounds</span>
+                        <span class="info-value">72</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Coatings</span>
+                        <span class="info-value">58</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Adhesives</span>
+                        <span class="info-value">35</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Lab Reagents</span>
+                        <span class="info-value">45</span>
+                    </div>
+
+                </div>
+
+                <div class="info-box">
+
+                    <h3>
+                        <i class="fa-solid fa-file-lines"></i>
+                        Recent Inventory Reports
+                    </h3>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            <span class="material-symbols-outlined">description</span>
+                            Stock_Report_June.pdf
+                        </span>
+                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
+                            View
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            <span class="material-symbols-outlined">description</span>
+                            Expiry_Items.pdf
+                        </span>
+                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
+                            View
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            <span class="material-symbols-outlined">description</span>
+                            Supplier_Report.pdf
+                        </span>
+                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
+                            View
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            <span class="material-symbols-outlined">description</span>
+                            Batch_Tracking.pdf
+                        </span>
+                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
+                            View
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">
+                            <span class="material-symbols-outlined">description</span>
+                            Chemical_Audit.pdf
+                        </span>
+                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
+                            View
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- ===== MEETINGS (ORDERS & DELIVERIES) ===== -->
+        <div class="content" id="page-meetings" style="padding:22px;">
+
+
+            <div class="page-title">Orders & Deliveries</div>
+
+            <div class="page-sub">
+                Manage chemical orders, deliveries and supplier schedules
+            </div>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-icon blue">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <div>
+                        <h2>12</h2>
+                        <p>Today's Deliveries</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon gold">
+                        <i class="fa-solid fa-calendar-week"></i>
+                    </div>
+                    <div>
+                        <h2>34</h2>
+                        <p>This Week Orders</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon green">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <div>
+                        <h2>8</h2>
+                        <p>Pending Shipments</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon red">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div>
+                        <h2>3</h2>
+                        <p>Delayed Deliveries</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="table-box">
+
+                <div class="table-header">
+                    <h2>Upcoming Deliveries</h2>
+                    <button class="btn-gold errorpage">
+                        + New Order
+                    </button>
+                </div>
+
+                <div style="padding:0 0 10px;">
+
+                    <div class="meeting-card">
+
+                        <div class="meeting-date">
+                            <div class="meeting-day">10</div>
+                            <div class="meeting-month">JUN</div>
+                        </div>
+
+                        <div>
+                            <div class="meeting-title">
+                                Industrial Solvent X40 – Apollo Textiles Ltd
+                            </div>
+
+                            <div class="meeting-meta">
+                                <span>
+                                    <i class="fa-solid fa-clock"></i>
+                                    10:00 AM
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Chennai Warehouse
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-user"></i>
+                                    David Lee
+                                </span>
+                            </div>
+                        </div>
+
+                        <span class="badge s-active" style="margin-left:auto;white-space:nowrap;">
+                            Dispatched
+                        </span>
+
+                    </div>
+
+                    <div class="meeting-card">
+
+                        <div class="meeting-date">
+                            <div class="meeting-day">12</div>
+                            <div class="meeting-month">JUN</div>
+                        </div>
+
+                        <div>
+                            <div class="meeting-title">
+                                AgroBoost NPK 25 – MedPlus Agro Industries
+                            </div>
+
+                            <div class="meeting-meta">
+                                <span>
+                                    <i class="fa-solid fa-clock"></i>
+                                    02:30 PM
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Madurai Distribution Center
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-user"></i>
+                                    Alex Kumar
+                                </span>
+                            </div>
+                        </div>
+
+                        <span class="badge s-blue" style="margin-left:auto;white-space:nowrap;">
+                            Scheduled
+                        </span>
+
+                    </div>
+
+                    <div class="meeting-card">
+
+                        <div class="meeting-date">
+                            <div class="meeting-day">15</div>
+                            <div class="meeting-month">JUN</div>
+                        </div>
+
+                        <div>
+                            <div class="meeting-title">
+                                ColorFix Dye 500 – Global Textiles Corp
+                            </div>
+
+                            <div class="meeting-meta">
+                                <span>
+                                    <i class="fa-solid fa-clock"></i>
+                                    11:00 AM
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Bangalore Logistics Hub
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-user"></i>
+                                    Priya Sharma
+                                </span>
+                            </div>
+                        </div>
+
+                        <span class="badge s-active" style="margin-left:auto;white-space:nowrap;">
+                            In Transit
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ===== REPORTS (SALES & ANALYTICS) ===== -->
+        <div class="content" id="page-reports" style="padding:22px;">
+
+            <div class="page-title">Sales & Analytics</div>
+
+            <div class="page-sub">
+                Chemical manufacturing business performance overview and sales insights
+            </div>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-icon green">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                    </div>
+                    <div>
+                        <h2>$154,500</h2>
+                        <p>Total Sales Revenue</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon blue">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <div>
+                        <h2>+24%</h2>
+                        <p>Growth This Month</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon gold">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <div>
+                        <h2>89%</h2>
+                        <p>Product Availability</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon red">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <div>
+                        <h2>$12,800</h2>
+                        <p>Pending Payments</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grid-2">
+
+                <div class="info-box">
+
+                    <h3>
+                        <i class="fa-solid fa-chart-bar"></i>
+                        Revenue by Product Category
+                    </h3>
+
+                    <div class="report-card" style="background:#f3f3f3;border:none;">
+                        <div class="report-title">Industrial Solvents</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:80%"></div>
+                        </div>
+                        <div class="progress-label">
+                            <span>$48,400</span>
+                            <span>80%</span>
+                        </div>
+                    </div>
+
+                    <div class="report-card" style="background:#f3f3f3;border:none;">
+                        <div class="report-title">Agro Chemicals</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:65%"></div>
+                        </div>
+                        <div class="progress-label">
+                            <span>$34,900</span>
+                            <span>65%</span>
+                        </div>
+                    </div>
+
+                    <div class="report-card" style="background:#f3f3f3;border:none;">
+                        <div class="report-title">Specialty Compounds</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:55%"></div>
+                        </div>
+                        <div class="progress-label">
+                            <span>$28,300</span>
+                            <span>55%</span>
+                        </div>
+                    </div>
+
+                    <div class="report-card" style="background:#f3f3f3;border:none;">
+                        <div class="report-title">Coatings & Adhesives</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:45%"></div>
+                        </div>
+                        <div class="progress-label">
+                            <span>$21,900</span>
+                            <span>45%</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="info-box">
+
+                    <h3>
+                        <i class="fa-solid fa-user-tie"></i>
+                        Sales Team Performance
+                    </h3>
+
+                    <div style="margin-bottom:14px;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                            <span style="color:#334155;font-size:13px;">
+                                David Lee
+                            </span>
+                            <span style="color:#0D80CE;font-size:13px;">
+                                142 Orders • 88%
+                            </span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:88%"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:14px;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                            <span style="color:#334155;font-size:13px;">
+                                Alex Kumar
+                            </span>
+                            <span style="color:#0D80CE;font-size:13px;">
+                                121 Orders • 79%
+                            </span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:79%"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:14px;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                            <span style="color:#334155;font-size:13px;">
+                                Priya Sharma
+                            </span>
+                            <span style="color:#0D80CE;font-size:13px;">
+                                98 Orders • 72%
+                            </span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:72%"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-row" style="margin-top:12px;">
+                        <span class="info-label">Monthly Sales Target</span>
+                        <span class="info-value" style="color:#4ade80;">
+                            $180,000
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Achieved</span>
+                        <span class="info-value" style="color:#0D80CE;">
+                            $154,500 (86%)
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Outstanding Payments</span>
+                        <span class="info-value" style="color:#f87171;">
+                            $12,800
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ===== SETTINGS ===== -->
+        <!-- <div class="content" id="page-settings" style="padding:22px;">
+
+
+            <div class="page-title">Settings</div>
+
+            <div class="page-sub">
+                Manage company profile, inventory preferences and account settings
+            </div>
+
+            <div class="grid-2">
+
+                <div>
+
+                    <div class="setting-section">
+
+                        <h3>
+                            <i class="fa-solid fa-building"></i>
+                            Company Profile
+                        </h3>
+
+                        <label style="color:black;font-size:12px;">
+                            Company Name
+                        </label>
+
+                        <input class="input-field" value="Stackly Chemical Manufacturing">
+
+                        <label style="color:black;font-size:12px;">
+                            Email Address
+                        </label>
+
+                        <input class="input-field" value="admin@stackly.com">
+
+                        <label style="color:black;font-size:12px;">
+                            Contact Number
+                        </label>
+
+                        <input class="input-field" value="+91 98765 43210">
+
+                        <label style="color:black;font-size:12px;">
+                            Head Office Address
+                        </label>
+
+                        <input class="input-field" value="123, Anna Nagar, Chennai, Tamil Nadu - 600040">
+
+                        <button class="btn-gold" style="width:100%;padding:12px;border-radius:12px;margin-top:4px;">
+                            Save Changes
+                        </button>
+
+                    </div>
+
+                    <div class="setting-section">
+
+                        <h3>
+                            <i class="fa-solid fa-lock"></i>
+                            Security Settings
+                        </h3>
+
+                        <label style="color:black;font-size:12px;">
+                            Current Password
+                        </label>
+
+                        <div class="passbox">
+                            <input class="input-field" type="password" placeholder="Enter Current Password">
+                            <span class="material-symbols-outlined pass-icon">visibility_off</span>
+                        </div>
+
+
+
+                        <label style="color:black;font-size:12px;">
+                            New Password
+                        </label>
+
+                        <div class="passbox">
+                            <input class="input-field" type="password" placeholder="Enter New Password">
+                            <span class="material-symbols-outlined pass-icon">visibility_off</span>
+                        </div>
+
+
+
+                        <button class="btn-gold" style="width:100%;padding:12px;border-radius:12px;margin-top:4px;">
+                            Change Password
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div class="setting-section">
+
+                        <h3>
+                            <i class="fa-solid fa-bell"></i>
+                            Notifications
+                        </h3>
+
+                        <div class="setting-row">
+                            <div>
+                                <div class="setting-label">
+                                    Low Stock Alerts
+                                </div>
+                                <div class="setting-desc">
+                                    Get alerts when stock is running low
+                                </div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+                        </div>
+
+                        <div class="setting-row">
+                            <div>
+                                <div class="setting-label">
+                                    New Orders
+                                </div>
+                                <div class="setting-desc">
+                                    Notify when a new order is received
+                                </div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+                        </div>
+
+                        <div class="setting-row">
+                            <div>
+                                <div class="setting-label">
+                                    Payment Confirmation
+                                </div>
+                                <div class="setting-desc">
+                                    Alert when payment is received
+                                </div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+                        </div>
+
+                        <div class="setting-row">
+                            <div>
+                                <div class="setting-label">
+                                    Expiry Notifications
+                                </div>
+                                <div class="setting-desc">
+                                    Notify for expiring chemical batches
+                                </div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="setting-section">
+
+                        <h3>
+                            <i class="fa-solid fa-sliders"></i>
+                            Preferences
+                        </h3>
+
+                        <div class="setting-row">
+                            <div>
+                                <div class="setting-label">
+                                    Dark Mode
+                                </div>
+                                <div class="setting-desc">
+                                    Enable dark theme
+                                </div>
+                            </div>
+                            <div class="toggle" onclick="this.classList.toggle('on')"></div>
+                        </div>
+
+                        <div class="setting-row">
+                            <div>
+                                <div class="setting-label">
+                                    Auto Inventory Backup
+                                </div>
+                                <div class="setting-desc">
+                                    Automatically backup stock records
+                                </div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+                        </div>
+
+                        <div class="setting-row">
+                            <div>
+                                <div class="setting-label">
+                                    Two-Factor Authentication
+                                </div>
+                                <div class="setting-desc">
+                                    Extra account security
+                                </div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="setting-section">
+
+                        <h3>
+                            <i class="fa-solid fa-users-gear"></i>
+                            Employee Access Control
+                        </h3>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                David Lee
+                            </span>
+                            <span class="status s-active">
+                                Admin
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                Alex Kumar
+                            </span>
+                            <span class="status s-blue">
+                                Manager
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                Priya Sharma
+                            </span>
+                            <span class="status s-pending">
+                                Staff
+                            </span>
+                        </div>
+
+                        <button class="btn-outline errorpage" style="width:100%;margin-top:14px;padding:10px;">
+                            Manage Access
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> -->
+
+    </div>
+
+    <script>
+        const menuItems = document.querySelectorAll('.menu li[data-page]');
+        const pages = document.querySelectorAll('.content');
+        const pageTitle = document.getElementById('pageTitle');
+        const pageTitles = { dashboard: 'Dashboard', clients: 'Clients', projects: 'Inventory', meetings: 'Orders & Deliveries', reports: 'Sales & Analytics' };
+//           const pageTitles = { dashboard: 'Dashboard', clients: 'Clients', projects: 'Inventory', meetings: 'Orders & Deliveries', reports: 'Sales & Analytics', settings: 'Settings' };
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                const page = item.dataset.page;
+                pages.forEach(p => p.classList.remove('active'));
+                document.getElementById('page-' + page).classList.add('active');
+                pageTitle.textContent = pageTitles[page] || page;
+                document.getElementById('sidebar').classList.remove('showSidebar');
+            });
+        });
+
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.add('showSidebar');
+        });
+        document.getElementById('closeBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.remove('showSidebar');
+        });
+
+        document.getElementById('logoutItem').addEventListener('click', () => {
+
+            localStorage.removeItem('adminEmail');
+
+            window.location.href = 'index.html';
+
+        });
+        const savedEmail = localStorage.getItem('adminEmail');
+        if (savedEmail) {
+            document.getElementById('adminEmail').innerText = savedEmail;
+        }
+
+        /* ===== INPUT VALIDATION ===== */
+     //   const firmName = document.querySelector('input[value="Stackly Chemical Manufacturing"]');
+     //   const emailField = document.querySelector('input[value="admin@stackly.com"]');
+     //   const phoneField = document.querySelector('input[value="+91 98765 43210"]');
+     //   const addressField = document.querySelector('input[value="123, Anna Nagar, Chennai, Tamil Nadu - 600040"]');
+//
+     //   const currentPassword = document.querySelector('input[placeholder="Enter Current Password"]');
+     //   const newPassword = document.querySelector('input[placeholder="Enter New Password"]');
+//
+//
+     //   /* NAME FIELD -> NO NUMBERS */
+//
+     //   firmName.addEventListener("input", () => {
+//
+     //       firmName.value = firmName.value.replace(/[^a-zA-Z\s.&]/g, '');
+//
+     //   });
+//
+//
+     //   /* PHONE FIELD -> ONLY NUMBERS */
+//
+     //   phoneField.addEventListener("input", () => {
+//
+     //       phoneField.value = phoneField.value.replace(/[^0-9+ ]/g, '');
+//
+     //   });
+//
+//
+     //   /* EMAIL VALIDATION */
+//
+     //   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//
+//
+     //   /* ===== SAVE CHANGES VALIDATION ===== */
+//
+     //   const saveBtn = document.querySelector('.setting-section .btn-gold');
+//
+     //   saveBtn.addEventListener("click", () => {
+//
+     //       if (
+     //           firmName.value.trim() === "" ||
+     //           emailField.value.trim() === "" ||
+     //           phoneField.value.trim() === "" ||
+     //           addressField.value.trim() === ""
+     //       ) {
+//
+     //           alert("Please fill all fields");
+     //           return;
+//
+     //       }
+//
+     //       /* CHECK EMAIL FORMAT */
+//
+     //       if (!emailPattern.test(emailField.value)) {
+//
+     //           alert("Please enter valid email");
+     //           return;
+//
+     //       }
+//
+     //       alert("Profile Updated Successfully");
+//
+     //   });
+//
+//
+     //   /* ===== CHANGE PASSWORD VALIDATION ===== */
+//
+     //   const passwordBtn = document.querySelectorAll('.setting-section .btn-gold')[1];
+//
+     //   passwordBtn.addEventListener("click", () => {
+//
+     //       if (
+     //           currentPassword.value.trim() === "" ||
+     //           newPassword.value.trim() === ""
+     //       ) {
+//
+     //           alert("Please fill all password fields");
+     //           return;
+//
+     //       }
+//
+     //       /* PASSWORD LENGTH */
+//
+     //       if (newPassword.value.length < 6) {
+//
+     //           alert("New Password must be at least 6 characters");
+     //           return;
+//
+     //       }
+//
+     //       alert("Password Changed Successfully");
+//
+     //       /* CLEAR PASSWORD FIELDS */
+//
+     //       currentPassword.value = "";
+     //       newPassword.value = "";
+//
+     //   });
+//
+     //   //password eye
+//
+     //   const passeye = document.querySelectorAll(".pass-icon")
+//
+     //   passeye.forEach((eyebtn) => {
+//
+     //       const input =
+     //           eyebtn.parentElement.querySelector("input");
+     //       eyebtn.addEventListener("click", () => {
+//
+     //           if (input.type === "password") {
+     //               input.type = "text"
+     //               eyebtn.textContent = "visibility"
+     //           }
+//
+     //           else {
+     //               input.type = "password"
+     //               eyebtn.textContent = "visibility_off"
+     //           }
+//
+     //       })
+//
+//
+     //   })
+//
+     //   /* ===== ERROR PAGE REDIRECT ===== */
+//
+        const errorPages = document.querySelectorAll('.errorpage');
+
+        errorPages.forEach((item) => {
+
+            item.addEventListener('click', () => {
+
+                window.location.href = "404.html";
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>
