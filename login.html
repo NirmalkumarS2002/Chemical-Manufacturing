@@ -40,7 +40,7 @@
             padding: 50px;
             background:
                 linear-gradient(150deg, rgba(13, 128, 206, 0.88), rgba(19, 35, 64, 0.94)),
-                url("https://images.unsplash.com/photo-1636747423727-2d39d0aa9796?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+                url("./src/hero4.webp") center/cover no-repeat;
         }
 
         .auth-brand-logo img {
@@ -216,6 +216,27 @@
         .btn-auth:hover {
             transform: translateY(-2px);
             box-shadow: 0 14px 28px rgba(13, 128, 206, .35);
+        }
+
+        .formfooter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .formfooter>a {
+            color: #0D80CE;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .formfooter>a span {
+            font-size: 15px;
         }
 
         .auth-switch {
@@ -513,7 +534,7 @@
                             <input class="input-field" type="password" id="password" placeholder="Enter your password">
                             <span class="material-symbols-outlined pass-icon">visibility_off</span>
                         </div>
-        
+
                         <span class="field-error" id="passwordError">Password must be 6 chars</span>
                     </div>
 
@@ -529,8 +550,13 @@
 
                 </form>
 
-                <div class="auth-switch">
-                    Don't have an account? <a href="sign.html">Sign Up</a>
+                <div class="formfooter">
+                    <div class="auth-switch">
+                        Don't have an account? <a href="sign.html">Sign Up</a>
+                    </div>
+                    <a href="index.html">Back to home <span class="material-symbols-outlined">
+                            arrow_right_alt
+                        </span></a>
                 </div>
 
             </div>

@@ -740,7 +740,15 @@
     .sk-btn-solid:hover {
         background: var(--scolor);
         border-color: var(--scolor);
-    }
+    }   
+
+      .sk-btn-solid span{
+        transition: .5s ease;
+      }
+
+      .sk-btn-solid:hover span{
+        transform: translateX(5px);
+      }
 
     .sk-btn-outline {
         background: transparent;
@@ -933,7 +941,7 @@
     }
 
     .sk-why-img {
-        background: url("https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+        background: url("./src/img5.webp") center/cover no-repeat;
         min-height: 520px;
     }
 
@@ -1203,6 +1211,13 @@
         border: 1px solid #eee;
         display: flex;
         flex-direction: column;
+        transition: .5s ease;
+    }
+
+    .sk-testi-card:hover{
+        border-color: var(--pcolor);
+        box-shadow: 1px 1px 20px rgba(128, 128, 128, 0.466);
+        transform: scale(0.9);
     }
 
     .sk-testi-quote {
@@ -1335,7 +1350,7 @@
         text-align: center;
         background:
             linear-gradient(120deg, rgba(13, 128, 206, 0.88), rgba(19, 35, 64, 0.92)),
-            url("https://images.unsplash.com/photo-1636747423727-2d39d0aa9796?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+            url("./src/img6.webp") center/cover no-repeat;
     }
 
     .sk-cta h2 {
@@ -1511,7 +1526,7 @@
 
                     <img src="./src/Circlex.webp" class="circleimage">
 
-                    <button class="circle-btn"><span class="material-symbols-outlined">arrow_right_alt</span></button>
+                    <button class="circle-btn errorpage"><span class="material-symbols-outlined">arrow_right_alt</span></button>
                 </div>
 
                 <p>Welcomt to industrie,a leading industry innovator with
@@ -1523,8 +1538,8 @@
         </div>
 
         <div class="sidebuttons">
-            <button class="ssbtn"><span class="material-symbols-outlined">arrow_right_alt</span></button>
-            <button class="ssbtn"><span class="material-symbols-outlined">arrow_left_alt</span></button>
+            <button class="ssbtn errorpage"><span class="material-symbols-outlined">arrow_right_alt</span></button>
+            <button class="ssbtn errorpage"><span class="material-symbols-outlined">arrow_left_alt</span></button>
         </div>
 
         <div class="fixed">
@@ -1626,9 +1641,9 @@
                 <p>From raw compound synthesis to bulk industrial supply, we manufacture consistent, high-purity
                     chemical products under strict quality and safety protocols.</p>
                 <div class="sk-stathero-btns">
-                    <a href="#" class="sk-btn-solid">Get a Quote<span
+                    <a href="404.html" class="sk-btn-solid">Get a Quote<span
                             class="material-symbols-outlined">arrow_right_alt</span></a>
-                    <a href="#" class="sk-btn-outline">Our Capabilities</a>
+                    <a href="404.html" class="sk-btn-outline">Our Capabilities</a>
                 </div>
             </div>
             <div class="sk-stathero-strip">
@@ -1659,7 +1674,7 @@
             </div>
             <div class="sk-products-grid">
                 <div class="sk-product-card">
-                    <img src="https://images.unsplash.com/photo-1614283226124-5a2f0f23752b?auto=format&fit=crop&w=800&q=80"
+                    <img src="./src/img1.webp"
                         alt="Industrial solvents">
                     <div class="sk-product-card-text">
                         <h4>Industrial Solvents</h4>
@@ -1667,7 +1682,7 @@
                     </div>
                 </div>
                 <div class="sk-product-card">
-                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80"
+                    <img src="./src/img2.webp"
                         alt="Specialty compounds">
                     <div class="sk-product-card-text">
                         <h4>Specialty Compounds</h4>
@@ -1675,7 +1690,7 @@
                     </div>
                 </div>
                 <div class="sk-product-card">
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80"
+                    <img src="./src/img3.webp"
                         alt="Laboratory reagents">
                     <div class="sk-product-card-text">
                         <h4>Laboratory Reagents</h4>
@@ -1683,7 +1698,7 @@
                     </div>
                 </div>
                 <div class="sk-product-card">
-                    <img src="https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&w=800&q=80"
+                    <img src="./src/img4.webp"
                         alt="Agro chemicals">
                     <div class="sk-product-card-text">
                         <h4>Agro Chemicals</h4>
@@ -1804,7 +1819,7 @@
                     <p class="sk-testi-text">Batch-to-batch consistency has been outstanding, our production line hasn't
                         had a single quality hold since we switched suppliers.</p>
                     <div class="sk-testi-person">
-                        <img src="https://images.unsplash.com/photo-1601961545517-59307b1fbac3?auto=format&fit=crop&w=100&q=80"
+                        <img src="./src/person6.webp"
                             alt="Client">
                         <div>
                             <h5>Procurement Lead</h5><span>Textile Manufacturing</span>
@@ -1816,7 +1831,7 @@
                     <p class="sk-testi-text">Their documentation and compliance support made our audits far smoother
                         than with previous vendors.</p>
                     <div class="sk-testi-person">
-                        <img src="https://images.unsplash.com/photo-1628863353691-0071c8c1874c?auto=format&fit=crop&w=100&q=80"
+                        <img src="./src/person7.webp"
                             alt="Client">
                         <div>
                             <h5>Plant Manager</h5><span>Agro Processing Ltd.</span>
@@ -1828,7 +1843,7 @@
                     <p class="sk-testi-text">Fast turnaround on custom formulations without compromising on lab-verified
                         purity.</p>
                     <div class="sk-testi-person">
-                        <img src="https://images.unsplash.com/photo-1617155093730-a8bf47be792d?auto=format&fit=crop&w=100&q=80"
+                        <img src="./src/person3.webp"
                             alt="Client">
                         <div>
                             <h5>R&D Director</h5><span>Coatings Group</span>
@@ -1871,9 +1886,9 @@
             <h2>Ready to Source Reliable Chemical Supply?</h2>
             <p>Talk to our technical team about volumes, specifications and custom formulation requirements.</p>
             <div class="sk-cta-btns">
-                <a href="#" class="sk-btn-solid">Request a Quote<span
+                <a href="404.html" class="sk-btn-solid">Request a Quote<span
                         class="material-symbols-outlined">arrow_right_alt</span></a>
-                <a href="#" class="sk-btn-outline">Contact Sales</a>
+                <a href="404.html" class="sk-btn-outline">Contact Sales</a>
             </div>
         </section>
 

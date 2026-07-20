@@ -65,6 +65,14 @@
         transition: .5s ease;
     }
 
+    .sp-btn-solid  span{
+        transition: .5s ease;
+    }
+
+    .sp-btn-solid:hover span{
+        transform: translateX(5px);
+    }
+
     .sp-btn-solid {
         background: var(--pcolor);
         color: white;
@@ -94,9 +102,10 @@
         display: flex;
         align-items: center;
         padding: 60px 80px;
+                     padding-top: 150px;
         background:
             linear-gradient(115deg, rgba(10, 20, 40, 0.85), rgba(13, 128, 206, 0.5)),
-            url("https://images.unsplash.com/photo-1589725971211-7e86a631e2c2?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+            url("./src/page.pg2.webp") top center/cover no-repeat;
     }
 
     .sp-hero-inner {
@@ -245,7 +254,7 @@
     }
 
     .sp-company-img {
-        background: url("https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+        background: url("./src/img7.webp") center/cover no-repeat;
         min-height: 480px;
     }
 
@@ -392,7 +401,7 @@
         min-height: 420px;
         background:
             linear-gradient(115deg, rgba(10, 20, 40, 0.55), rgba(13, 128, 206, 0.72)),
-            url("https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+            url("./src/img8.webp") center/cover no-repeat;
     }
 
     .sp-spotlight-inner {
@@ -426,54 +435,7 @@
         }
     }
 
-    /* ============ 6. CTA BANNER ============ */
-    .sp-cta {
-        padding: 80px;
-        text-align: center;
-        background: white;
-        border-top: 1px solid #eee;
-    }
-
-    .sp-cta h2 {
-        font-family: "Sora", sans-serif;
-        font-weight: 500;
-        font-size: clamp(26px, 3.5vw, 38px);
-        max-width: 620px;
-        margin: 0 auto 16px auto;
-        line-height: 1.2;
-    }
-
-    .sp-cta p {
-        font-size: 15px;
-        color: #666;
-        max-width: 480px;
-        margin: 0 auto 30px auto;
-        line-height: 1.6;
-    }
-
-    .sp-cta-btns {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .sp-cta .sp-btn-outline {
-        color: var(--scolor);
-        border: 1px solid #ccc;
-    }
-
-    .sp-cta .sp-btn-outline:hover {
-        background: var(--scolor);
-        color: white;
-        border-color: var(--scolor);
-    }
-
-    @media (max-width:900px) {
-        .sp-cta {
-            padding: 55px 25px;
-        }
-    }
+   
 </style>
 </head>
 <body>
@@ -621,43 +583,43 @@
             <p>The pages most visitors look for first, covering who we are and what we manufacture.</p>
         </div>
         <div class="sp-core-grid">
-            <a href="index.html" class="sp-core-card">
-                <img src="https://images.unsplash.com/photo-1588011930968-eadac80e6a5a?auto=format&fit=crop&w=800&q=80"
+            <a href="404.html" class="sp-core-card">
+                <img src="./src/page1.webp"
                     alt="Home">
                 <div class="sp-core-card-text">
                     <h4>Home</h4><span class="material-symbols-outlined">arrow_right_alt</span>
                 </div>
             </a>
-            <a href="about.html" class="sp-core-card">
-                <img src="https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&w=800&q=80"
+            <a href="404.html" class="sp-core-card">
+                <img src="./src/page3.webp"
                     alt="About">
                 <div class="sp-core-card-text">
                     <h4>About Us</h4><span class="material-symbols-outlined">arrow_right_alt</span>
                 </div>
             </a>
             <a href="404.html" class="sp-core-card">
-                <img src="https://images.unsplash.com/photo-1614283226124-5a2f0f23752b?auto=format&fit=crop&w=800&q=80"
+                <img src="./src/page6.webp"
                     alt="Products">
                 <div class="sp-core-card-text">
                     <h4>Products</h4><span class="material-symbols-outlined">arrow_right_alt</span>
                 </div>
             </a>
             <a href="404.html" class="sp-core-card">
-                <img src="https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=800&q=80"
+                <img src="./src/page5.webp"
                     alt="Services">
                 <div class="sp-core-card-text">
                     <h4>Services</h4><span class="material-symbols-outlined">arrow_right_alt</span>
                 </div>
             </a>
-            <a href="blog.html" class="sp-core-card">
-                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80"
+            <a href="404.html" class="sp-core-card">
+                <img src="./src/page4.webp"
                     alt="Blog">
                 <div class="sp-core-card-text">
                     <h4>Blog</h4><span class="material-symbols-outlined">arrow_right_alt</span>
                 </div>
             </a>
-            <a href="contact.html" class="sp-core-card">
-                <img src="https://images.unsplash.com/photo-1636747423727-2d39d0aa9796?auto=format&fit=crop&w=800&q=80"
+            <a href="404.html" class="sp-core-card">
+                <img src="./src/page2.webp"
                     alt="Contact">
                 <div class="sp-core-card-text">
                     <h4>Contact</h4><span class="material-symbols-outlined">arrow_right_alt</span>
@@ -733,17 +695,6 @@
             <p>Take a closer look at our manufacturing process, from formulation to dispatch, on our Services page.</p>
             <a href="404.html" class="sp-btn-solid">Visit Services Page<span
                     class="material-symbols-outlined">arrow_right_alt</span></a>
-        </div>
-    </section>
-
-    <!-- 6. CTA BANNER -->
-    <section class="sp-cta">
-        <h2>Can't Find the Page You're Looking For?</h2>
-        <p>Reach out to our team directly and we'll point you in the right direction.</p>
-        <div class="sp-cta-btns">
-            <a href="contact.html" class="sp-btn-solid">Contact Us<span
-                    class="material-symbols-outlined">arrow_right_alt</span></a>
-            <a href="index.html" class="sp-btn-outline">Back to Home</a>
         </div>
     </section>
 

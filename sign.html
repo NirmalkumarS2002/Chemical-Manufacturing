@@ -40,7 +40,7 @@
             padding: 50px;
             background:
                 linear-gradient(150deg, rgba(13, 128, 206, 0.88), rgba(19, 35, 64, 0.94)),
-                url("https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+                url("./src/abt-img2.webp") center/cover no-repeat;
         }
 
         .auth-brand-logo img {
@@ -224,6 +224,28 @@
             box-shadow: 0 14px 28px rgba(13, 128, 206, .35);
         }
 
+
+        .formfooter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .formfooter>a {
+            color: #0D80CE;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .formfooter>a span {
+            font-size: 15px;
+        }
+
         .auth-switch {
             text-align: center;
             margin-top: 24px;
@@ -266,121 +288,121 @@
 
 
         .custom-dropdown {
-    position: relative;
-    width: 100%;
-}
+            position: relative;
+            width: 100%;
+        }
 
-/* Selected Box */
+        /* Selected Box */
 
-.dropdown-selected {
-    width: 100%;
-    height: 48px;
-    padding: 0 16px;
+        .dropdown-selected {
+            width: 100%;
+            height: 48px;
+            padding: 0 16px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    background: #eef6fc;
-    border: 1px solid #b9dcf7;
-    border-radius: 10px;
+            background: #eef6fc;
+            border: 1px solid #b9dcf7;
+            border-radius: 10px;
 
-    font-size: 14px;
-    color: #111;
+            font-size: 14px;
+            color: #111;
 
-    cursor: pointer;
-    box-sizing: border-box;
-    transition: 0.3s;
-}
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
 
-.dropdown-selected:hover {
-    border-color: #1597d4;
-}
-
-
-/* Arrow */
-
-.dropdown-arrow {
-    font-size: 20px;
-    color: #078bd2;
-    transition: 0.3s;
-}
-
-.custom-dropdown.active .dropdown-arrow {
-    transform: rotate(180deg);
-}
+        .dropdown-selected:hover {
+            border-color: #1597d4;
+        }
 
 
-/* Options Box */
+        /* Arrow */
 
-.dropdown-options {
-    position: absolute;
+        .dropdown-arrow {
+            font-size: 20px;
+            color: #078bd2;
+            transition: 0.3s;
+        }
 
-    top: calc(100% + 6px);
-    left: 0;
-
-    width: 100%;
-    padding: 6px;
-
-    background: white;
-
-    border: 1px solid #d8e7f2;
-    border-radius: 10px;
-
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: translateY(-8px);
-
-    transition: 0.25s;
-
-    z-index: 100;
-
-    box-sizing: border-box;
-}
+        .custom-dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
 
 
-/* Open Dropdown */
+        /* Options Box */
 
-.custom-dropdown.active .dropdown-options {
-    opacity: 1;
-    visibility: visible;
+        .dropdown-options {
+            position: absolute;
 
-    transform: translateY(0);
-}
+            top: calc(100% + 6px);
+            left: 0;
 
+            width: 100%;
+            padding: 6px;
 
-/* Option */
+            background: white;
 
-.dropdown-option {
-    padding: 11px 13px;
+            border: 1px solid #d8e7f2;
+            border-radius: 10px;
 
-    font-size: 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 
-    border-radius: 7px;
+            opacity: 0;
+            visibility: hidden;
 
-    cursor: pointer;
+            transform: translateY(-8px);
 
-    transition: 0.2s;
-}
+            transition: 0.25s;
 
+            z-index: 100;
 
-/* Hover */
-
-.dropdown-option:hover {
-    background: #eaf6fd;
-    color: #078bd2;
-}
+            box-sizing: border-box;
+        }
 
 
-/* Selected */
+        /* Open Dropdown */
 
-.dropdown-option.selected {
-    background: #eaf6fd;
-    color: #078bd2;
-}
+        .custom-dropdown.active .dropdown-options {
+            opacity: 1;
+            visibility: visible;
+
+            transform: translateY(0);
+        }
+
+
+        /* Option */
+
+        .dropdown-option {
+            padding: 11px 13px;
+
+            font-size: 14px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        /* Hover */
+
+        .dropdown-option:hover {
+            background: #eaf6fd;
+            color: #078bd2;
+        }
+
+
+        /* Selected */
+
+        .dropdown-option.selected {
+            background: #eaf6fd;
+            color: #078bd2;
+        }
     </style>
 </head>
 
@@ -501,8 +523,15 @@
 
                 </form>
 
-                <div class="auth-switch">
-                    Already have an account? <a href="login.html">Login</a>
+
+
+                <div class="formfooter">
+                    <div class="auth-switch">
+                        Already have an account? <a href="login.html">Login</a>
+                    </div>
+                    <a href="index.html">Back to home <span class="material-symbols-outlined">
+                            arrow_right_alt
+                        </span></a>
                 </div>
 
             </div>
@@ -597,72 +626,72 @@
 
         const dropdown = document.getElementById("roleDropdown");
 
-const selectedBox = dropdown.querySelector(".dropdown-selected");
+        const selectedBox = dropdown.querySelector(".dropdown-selected");
 
-const selectedRole = document.getElementById("selectedRole");
+        const selectedRole = document.getElementById("selectedRole");
 
-const options = dropdown.querySelectorAll(".dropdown-option");
+        const options = dropdown.querySelectorAll(".dropdown-option");
 
-const role = document.getElementById("role");
-
-
-// Dropdown Open / Close
-
-selectedBox.addEventListener("click", () => {
-
-    dropdown.classList.toggle("active");
-
-});
+        const role = document.getElementById("role");
 
 
-// Option Select
+        // Dropdown Open / Close
 
-options.forEach((option) => {
+        selectedBox.addEventListener("click", () => {
 
-    option.addEventListener("click", () => {
-
-        // Admin / Client text
-        selectedRole.textContent = option.textContent.trim();
-
-
-        // admin / client value
-        role.value = option.dataset.value;
-
-
-        // Remove previous selected class
-
-        options.forEach((item) => {
-
-            item.classList.remove("selected");
+            dropdown.classList.toggle("active");
 
         });
 
 
-        // Current option selected
+        // Option Select
 
-        option.classList.add("selected");
+        options.forEach((option) => {
 
+            option.addEventListener("click", () => {
 
-        // Close dropdown
-
-        dropdown.classList.remove("active");
-
-    });
-
-});
+                // Admin / Client text
+                selectedRole.textContent = option.textContent.trim();
 
 
-// Outside click -> close dropdown
+                // admin / client value
+                role.value = option.dataset.value;
 
-document.addEventListener("click", (e) => {
 
-    if (!dropdown.contains(e.target)) {
+                // Remove previous selected class
 
-        dropdown.classList.remove("active");
+                options.forEach((item) => {
 
-    }
+                    item.classList.remove("selected");
 
-});
+                });
+
+
+                // Current option selected
+
+                option.classList.add("selected");
+
+
+                // Close dropdown
+
+                dropdown.classList.remove("active");
+
+            });
+
+        });
+
+
+        // Outside click -> close dropdown
+
+        document.addEventListener("click", (e) => {
+
+            if (!dropdown.contains(e.target)) {
+
+                dropdown.classList.remove("active");
+
+            }
+
+        });
     </script>
 
 </body>
