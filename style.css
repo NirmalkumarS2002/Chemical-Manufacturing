@@ -282,6 +282,10 @@ body {
     justify-content: space-between;
 }
 
+.sidelinks a.active{
+    color: var(--pcolor);
+}
+
 .sidelinks a span{
     font-size: 20px;
 }

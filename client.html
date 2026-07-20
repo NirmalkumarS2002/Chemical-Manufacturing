@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stackly Chemical Manufacturing Dashboard</title>
+    <title>Stackly Chemical Manufacturing - Client Portal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -290,14 +290,6 @@
             gap: 10px;
         }
 
-        .table-avatar-wrap img {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
         .product-thumb {
             width: 36px;
             height: 36px;
@@ -405,49 +397,77 @@
             font-weight: 500;
         }
 
-        .client-card {
+        /* ===== PRODUCT CARDS (My Products page) ===== */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .product-card {
             background: #ffffff;
             border-radius: 16px;
-            padding: 18px;
+            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            gap: 14px;
+            transition: .3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(13, 128, 206, 0.12);
+        }
+
+        .product-card-img {
+            height: 130px;
+            overflow: hidden;
+        }
+
+        .product-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-card-body {
+            padding: 16px;
+        }
+
+        .product-card-body h4 {
+            color: #0f172a;
+            font-size: 14.5px;
+            margin-bottom: 4px;
+        }
+
+        .product-card-body p {
+            color: #888;
+            font-size: 12px;
             margin-bottom: 12px;
         }
 
-        .client-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0D80CE, #132340);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            color: white;
-            font-size: 17px;
-            flex-shrink: 0;
-        }
-
-        .client-name {
-            color: #0f172a;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .client-case {
-            color: #888;
-            font-size: 12px;
-            margin-top: 3px;
-        }
-
-        .badge {
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 11px;
+        .product-card-body button {
+            width: 100%;
+            padding: 9px;
+            border-radius: 9px;
+            border: none;
+            background: rgba(13, 128, 206, 0.12);
+            color: #0D80CE;
             font-weight: 600;
-            margin-left: auto;
+            font-size: 12.5px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .product-card-body button:hover {
+            background: #0D80CE;
+            color: white;
+        }
+
+        @media(max-width:1080px) {
+            .product-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media(max-width:560px) {
+            .product-grid { grid-template-columns: 1fr; }
         }
 
         .setting-section {
@@ -533,8 +553,6 @@
             margin-bottom: 12px;
         }
 
-
-
         .passbox {
             position: relative;
         }
@@ -550,7 +568,6 @@
             cursor: pointer;
             font-size: 20px
         }
-
 
         input[type="password"]::-ms-reveal,
         input[type="password"]::-ms-clear,
@@ -704,10 +721,10 @@
         </div>
         <ul class="menu">
             <li class="active" data-page="dashboard"><a><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
-            <li data-page="clients"><a><i class="fa-solid fa-users"></i> Clients</a></li>
-            <li data-page="projects"><a><i class="fa-solid fa-diagram-project"></i> Inventory</a></li>
-            <li data-page="meetings"><a><i class="fa-solid fa-calendar-check"></i> Orders & Deliveries</a></li>
-            <li data-page="reports"><a><i class="fa-solid fa-chart-pie"></i> Sales & Analytics
+            <li data-page="clients"><a><i class="fa-solid fa-boxes-stacked"></i> My Orders</a></li>
+            <li data-page="projects"><a><i class="fa-solid fa-flask"></i> My Products</a></li>
+            <li data-page="meetings"><a><i class="fa-solid fa-truck"></i> Deliveries & Tracking</a></li>
+            <li data-page="reports"><a><i class="fa-solid fa-file-invoice-dollar"></i> Invoices & Payments
                 </a></li>
             <!-- <li data-page="settings"><a><i class="fa-solid fa-gear"></i> Settings</a></li> -->
             <li id="logoutItem"><a><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
@@ -722,11 +739,11 @@
             </div>
             <div class="admin-info">
                 <img class="avatar" id="avatarEl"
-                    src="https://images.unsplash.com/photo-1652471943570-f3590a4e52ed?auto=format&fit=crop&w=100&q=80"
-                    alt="Admin avatar">
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80"
+                    alt="Client avatar">
                 <div>
-                    <h4 id="adminEmail">admin@stackly.com</h4>
-                    <p style="color:#888;font-size:12px;">Administrator</p>
+                    <h4 id="adminEmail">ramesh@apollotextiles.com</h4>
+                    <p style="color:#888;font-size:12px;">Apollo Textiles Ltd</p>
                 </div>
             </div>
         </div>
@@ -737,53 +754,11 @@
                 <div class="cards">
                     <div class="card">
                         <div class="card-icon gold">
-                            <i class="fa-solid fa-industry"></i>
-                        </div>
-                        <div>
-                            <h2>1,240</h2>
-                            <p>Total Clients</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-icon blue">
                             <i class="fa-solid fa-boxes-stacked"></i>
                         </div>
                         <div>
-                            <h2>342</h2>
-                            <p>Active Orders</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-icon green">
-                            <i class="fa-solid fa-flask-vial"></i>
-                        </div>
-                        <div>
-                            <h2>1,180</h2>
-                            <p>Batches Quality-Tested</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-icon red">
-                            <i class="fa-solid fa-indian-rupee-sign"></i>
-                        </div>
-                        <div>
-                            <h2>₹68.2L</h2>
-                            <p>Total Revenue</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cards">
-                    <div class="card">
-                        <div class="card-icon gold">
-                            <i class="fa-solid fa-user-plus"></i>
-                        </div>
-                        <div>
-                            <h2>18</h2>
-                            <p>New Clients</p>
+                            <h2>48</h2>
+                            <p>Total Orders Placed</p>
                         </div>
                     </div>
 
@@ -792,28 +767,70 @@
                             <i class="fa-solid fa-truck"></i>
                         </div>
                         <div>
-                            <h2>42</h2>
-                            <p>Today's Orders</p>
+                            <h2>5</h2>
+                            <p>Active Orders</p>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-icon green">
-                            <i class="fa-solid fa-clipboard-list"></i>
+                            <i class="fa-solid fa-clock"></i>
                         </div>
                         <div>
-                            <h2>310</h2>
-                            <p>Batch Records</p>
+                            <h2>3</h2>
+                            <p>Pending Deliveries</p>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-icon red">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <div>
+                            <h2>₹18.6L</h2>
+                            <p>Total Amount Spent</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon gold">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <h2>4</h2>
+                            <p>Orders This Month</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon blue">
                             <i class="fa-solid fa-flask"></i>
                         </div>
                         <div>
-                            <h2>96</h2>
-                            <p>Chemicals Shipped Today</p>
+                            <h2>12</h2>
+                            <p>Products Purchased</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon green">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <div>
+                            <h2>1</h2>
+                            <p>Open Support Tickets</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon red">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <h2>Gold</h2>
+                            <p>Partner Tier</p>
                         </div>
                     </div>
                 </div>
@@ -821,126 +838,27 @@
             <div style="padding:0 22px 22px;">
                 <div class="table-box">
                     <div class="table-header">
-                        <h2>Manufacturing Team</h2>
-                        <button class="btn-gold errorpage">+ Add Employee</button>
-                    </div>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th>Email</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    <div class="table-avatar-wrap">
-                                        <img src="https://images.unsplash.com/photo-1652471943570-f3590a4e52ed?auto=format&fit=crop&w=100&q=80" alt="John Smith">
-                                        Dr. John Smith
-                                    </div>
-                                </td>
-                                <td>Quality Control</td>
-                                <td>john@stackly.com</td>
-                                <td>
-                                    <span class="status s-active">
-                                        Available
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="table-avatar-wrap">
-                                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt="David Lee">
-                                        David Lee
-                                    </div>
-                                </td>
-                                <td>Production Manager</td>
-                                <td>david@stackly.com</td>
-                                <td>
-                                    <span class="status s-pending">
-                                        In Production
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="table-avatar-wrap">
-                                        <img src="https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?auto=format&fit=crop&w=100&q=80" alt="Alex Kumar">
-                                        Alex Kumar
-                                    </div>
-                                </td>
-                                <td>Inventory Manager</td>
-                                <td>alex@stackly.com</td>
-                                <td>
-                                    <span class="status s-active">
-                                        Available
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="table-avatar-wrap">
-                                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Priya Sharma">
-                                        Priya Sharma
-                                    </div>
-                                </td>
-                                <td>Research & Development</td>
-                                <td>priya@stackly.com</td>
-                                <td>
-                                    <span class="status s-active">
-                                        Active
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="table-avatar-wrap">
-                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Michael Raj">
-                                        Michael Raj
-                                    </div>
-                                </td>
-                                <td>Regulatory Affairs</td>
-                                <td>michael@stackly.com</td>
-                                <td>
-                                    <span class="status s-closed">
-                                        On Leave
-                                    </span>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-box">
-                    <div class="table-header">
                         <h2>Recent Orders</h2>
-                        <button class="btn-gold errorpage">+ New Order</button>
+                        <button class="btn-gold errorpage">+ Place New Order</button>
                     </div>
 
                     <table>
                         <thead>
                             <tr>
-                                <th>Customer</th>
+                                <th>Order ID</th>
                                 <th>Product</th>
+                                <th>Quantity</th>
                                 <th>Status</th>
-                                <th>Delivery Date</th>
+                                <th>Order Date</th>
                             </tr>
                         </thead>
 
                         <tbody>
 
                             <tr>
-                                <td>Apollo Textiles Ltd</td>
+                                <td>#ORD-3041</td>
                                 <td>Industrial Solvent X40</td>
+                                <td>500 L</td>
                                 <td>
                                     <span class="status s-active">
                                         Delivered
@@ -950,8 +868,9 @@
                             </tr>
 
                             <tr>
-                                <td>MedPlus Agro Industries</td>
-                                <td>AgroBoost NPK 25</td>
+                                <td>#ORD-3042</td>
+                                <td>ColorFix Dye 500</td>
+                                <td>200 Kg</td>
                                 <td>
                                     <span class="status s-pending">
                                         Processing
@@ -961,10 +880,11 @@
                             </tr>
 
                             <tr>
-                                <td>Global Textiles Corp</td>
-                                <td>ColorFix Dye 500</td>
+                                <td>#ORD-3043</td>
+                                <td>ClearCoat Resin 100</td>
+                                <td>150 L</td>
                                 <td>
-                                    <span class="status s-active">
+                                    <span class="status s-blue">
                                         Shipped
                                     </span>
                                 </td>
@@ -972,8 +892,9 @@
                             </tr>
 
                             <tr>
-                                <td>Care Coatings Pvt Ltd</td>
-                                <td>ClearCoat Resin 100</td>
+                                <td>#ORD-3044</td>
+                                <td>BondSet Adhesive 250</td>
+                                <td>80 Kg</td>
                                 <td>
                                     <span class="status s-pending">
                                         Pending
@@ -983,8 +904,9 @@
                             </tr>
 
                             <tr>
-                                <td>City Construction Materials</td>
-                                <td>BondSet Adhesive 250</td>
+                                <td>#ORD-3045</td>
+                                <td>Industrial Solvent X40</td>
+                                <td>350 L</td>
                                 <td>
                                     <span class="status s-closed">
                                         Cancelled
@@ -996,118 +918,179 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="table-box">
+                    <div class="table-header">
+                        <h2>Frequently Ordered Products</h2>
+                        <button class="btn-outline errorpage">View All Products</button>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Times Ordered</th>
+                                <th>Last Ordered</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <div class="table-avatar-wrap">
+                                        <img class="product-thumb" src="https://images.unsplash.com/photo-1614283226124-5a2f0f23752b?auto=format&fit=crop&w=100&q=80" alt="Industrial Solvent X40">
+                                        Industrial Solvent X40
+                                    </div>
+                                </td>
+                                <td>Solvents</td>
+                                <td>14</td>
+                                <td>15 Jun 2026</td>
+                                <td><button class="btn-outline errorpage">Reorder</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="table-avatar-wrap">
+                                        <img class="product-thumb" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=100&q=80" alt="ColorFix Dye 500">
+                                        ColorFix Dye 500
+                                    </div>
+                                </td>
+                                <td>Specialty Compounds</td>
+                                <td>9</td>
+                                <td>18 Jun 2026</td>
+                                <td><button class="btn-outline errorpage">Reorder</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="table-avatar-wrap">
+                                        <img class="product-thumb" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=100&q=80" alt="ClearCoat Resin 100">
+                                        ClearCoat Resin 100
+                                    </div>
+                                </td>
+                                <td>Coatings</td>
+                                <td>6</td>
+                                <td>20 Jun 2026</td>
+                                <td><button class="btn-outline errorpage">Reorder</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
-        <!-- ===== CLIENTS ===== -->
+        <!-- ===== MY ORDERS ===== -->
         <div class="content" id="page-clients" style="padding:22px;">
-            <div class="page-title">Client Management</div>
-            <div class="page-sub">Manage all registered clients and their order details</div>
+            <div class="page-title">My Orders</div>
+            <div class="page-sub">Track and manage every order you've placed with Stackly</div>
             <div class="cards">
                 <div class="card">
-                    <div class="card-icon gold"><i class="fa-solid fa-users"></i></div>
+                    <div class="card-icon gold"><i class="fa-solid fa-boxes-stacked"></i></div>
                     <div>
-                        <h2>1,245</h2>
-                        <p>Total Clients</p>
+                        <h2>48</h2>
+                        <p>Total Orders</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-icon green"><i class="fa-solid fa-user-check"></i></div>
+                    <div class="card-icon green"><i class="fa-solid fa-circle-check"></i></div>
                     <div>
-                        <h2>987</h2>
-                        <p>Active Clients</p>
+                        <h2>39</h2>
+                        <p>Delivered</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-icon blue"><i class="fa-solid fa-user-plus"></i></div>
+                    <div class="card-icon blue"><i class="fa-solid fa-hourglass-half"></i></div>
                     <div>
-                        <h2>54</h2>
-                        <p>New This Month</p>
+                        <h2>7</h2>
+                        <p>Processing / Shipped</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-icon red"><i class="fa-solid fa-user-xmark"></i></div>
+                    <div class="card-icon red"><i class="fa-solid fa-ban"></i></div>
                     <div>
-                        <h2>204</h2>
-                        <p>Inactive Clients</p>
+                        <h2>2</h2>
+                        <p>Cancelled</p>
                     </div>
                 </div>
             </div>
             <div class="table-box">
                 <div class="table-header">
-                    <h2>All Customers</h2>
+                    <h2>Order History</h2>
                     <div style="display:flex;gap:10px;">
                         <button class="btn-outline errorpage">Export</button>
-                        <button class="btn-gold errorpage">+ Add Customer</button>
+                        <button class="btn-gold errorpage">+ Place New Order</button>
                     </div>
                 </div>
 
                 <table>
                     <thead>
                         <tr>
-                            <th>Customer Name</th>
-                            <th>Phone</th>
-                            <th>Product Ordered</th>
-                            <th>Sales Executive</th>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
                             <th>Status</th>
-                            <th>Registered</th>
+                            <th>Order Date</th>
                         </tr>
                     </thead>
 
                     <tbody>
 
                         <tr>
-                            <td>Apollo Textiles Ltd</td>
-                            <td>+91 98765 43210</td>
+                            <td>#ORD-3041</td>
                             <td>Industrial Solvent X40</td>
-                            <td>David Lee</td>
-                            <td><span class="status s-active">Active</span></td>
-                            <td>01 Jan 2026</td>
+                            <td>500 L</td>
+                            <td>₹1,45,000</td>
+                            <td><span class="status s-active">Delivered</span></td>
+                            <td>15 Jun 2026</td>
                         </tr>
 
                         <tr>
-                            <td>MedPlus Agro Industries</td>
-                            <td>+91 87654 32109</td>
-                            <td>AgroBoost NPK 25</td>
-                            <td>Alex Kumar</td>
-                            <td><span class="status s-active">Active</span></td>
-                            <td>10 Feb 2026</td>
-                        </tr>
-
-                        <tr>
-                            <td>Global Textiles Corp</td>
-                            <td>+91 76543 21098</td>
-                            <td>ClearCoat Resin 100</td>
-                            <td>John Smith</td>
-                            <td><span class="status s-pending">Pending</span></td>
-                            <td>15 Mar 2026</td>
-                        </tr>
-
-                        <tr>
-                            <td>Care Coatings Pvt Ltd</td>
-                            <td>+91 65432 10987</td>
+                            <td>#ORD-3042</td>
                             <td>ColorFix Dye 500</td>
-                            <td>David Lee</td>
-                            <td><span class="status s-active">Active</span></td>
-                            <td>20 Apr 2026</td>
+                            <td>200 Kg</td>
+                            <td>₹86,000</td>
+                            <td><span class="status s-pending">Processing</span></td>
+                            <td>18 Jun 2026</td>
                         </tr>
 
                         <tr>
-                            <td>LifeCare Packaging Ltd</td>
-                            <td>+91 54321 09876</td>
+                            <td>#ORD-3043</td>
+                            <td>ClearCoat Resin 100</td>
+                            <td>150 L</td>
+                            <td>₹54,500</td>
+                            <td><span class="status s-blue">Shipped</span></td>
+                            <td>20 Jun 2026</td>
+                        </tr>
+
+                        <tr>
+                            <td>#ORD-3044</td>
                             <td>BondSet Adhesive 250</td>
-                            <td>Priya Sharma</td>
-                            <td><span class="status s-closed">Inactive</span></td>
-                            <td>05 May 2026</td>
+                            <td>80 Kg</td>
+                            <td>₹32,000</td>
+                            <td><span class="status s-pending">Pending</span></td>
+                            <td>22 Jun 2026</td>
                         </tr>
 
                         <tr>
-                            <td>City Construction Materials</td>
-                            <td>+91 43210 98765</td>
-                            <td>StoneGuard Sealant 500</td>
-                            <td>Alex Kumar</td>
-                            <td><span class="status s-pending">Under Review</span></td>
-                            <td>12 May 2026</td>
+                            <td>#ORD-3045</td>
+                            <td>Industrial Solvent X40</td>
+                            <td>350 L</td>
+                            <td>₹1,01,500</td>
+                            <td><span class="status s-closed">Cancelled</span></td>
+                            <td>12 Jun 2026</td>
+                        </tr>
+
+                        <tr>
+                            <td>#ORD-3038</td>
+                            <td>AgroBoost NPK 25</td>
+                            <td>600 Kg</td>
+                            <td>₹78,000</td>
+                            <td><span class="status s-active">Delivered</span></td>
+                            <td>05 Jun 2026</td>
                         </tr>
 
                     </tbody>
@@ -1117,47 +1100,28 @@
 
                 <div class="info-box">
                     <h3>
-                        <i class="fa-solid fa-industry"></i>
-                        Top Customers by Orders
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Order Trend
                     </h3>
 
-                    <div class="client-card">
-                        <div class="client-avatar">A</div>
-                        <div>
-                            <div class="client-name">Apollo Textiles Ltd</div>
-                            <div class="client-case">
-                                Industrial Solvent X40 • Active
-                            </div>
-                        </div>
-                        <span class="badge s-active">
-                            15 Orders
-                        </span>
+                    <div class="info-row">
+                        <span class="info-label">This Month</span>
+                        <span class="info-value">4 Orders</span>
                     </div>
 
-                    <div class="client-card">
-                        <div class="client-avatar">M</div>
-                        <div>
-                            <div class="client-name">MedPlus Agro Industries</div>
-                            <div class="client-case">
-                                AgroBoost NPK 25 • Active
-                            </div>
-                        </div>
-                        <span class="badge s-blue">
-                            12 Orders
-                        </span>
+                    <div class="info-row">
+                        <span class="info-label">Last Month</span>
+                        <span class="info-value">6 Orders</span>
                     </div>
 
-                    <div class="client-card">
-                        <div class="client-avatar">G</div>
-                        <div>
-                            <div class="client-name">Global Textiles Corp</div>
-                            <div class="client-case">
-                                ClearCoat Resin 100 • Active
-                            </div>
-                        </div>
-                        <span class="badge s-active">
-                            10 Orders
-                        </span>
+                    <div class="info-row">
+                        <span class="info-label">Average Order Value</span>
+                        <span class="info-value">₹87,400</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Most Ordered Product</span>
+                        <span class="info-value">Industrial Solvent X40</span>
                     </div>
 
                 </div>
@@ -1165,52 +1129,37 @@
                 <div class="info-box">
 
                     <h3>
-                        <i class="fa-solid fa-chart-line"></i>
-                        Sales Summary
+                        <i class="fa-solid fa-headset"></i>
+                        Need Help With an Order?
                     </h3>
 
                     <div class="info-row">
                         <span class="info-label">
-                            Direct Industrial Orders
+                            <span class="material-symbols-outlined">support_agent</span>
+                            Raise a Support Ticket
                         </span>
-                        <span class="info-value">
-                            420
-                        </span>
-                    </div>
-
-                    <div class="info-row">
-                        <span class="info-label">
-                            Distributor Orders
-                        </span>
-                        <span class="info-value">
-                            680
+                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
+                            Open
                         </span>
                     </div>
 
                     <div class="info-row">
                         <span class="info-label">
-                            Online B2B Orders
+                            <span class="material-symbols-outlined">call</span>
+                            Call Sales Executive
                         </span>
-                        <span class="info-value">
-                            390
-                        </span>
-                    </div>
-
-                    <div class="info-row">
-                        <span class="info-label">
-                            Average Delivery Time
-                        </span>
-                        <span class="info-value">
-                            2.8 Days
+                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
+                            Call
                         </span>
                     </div>
 
                     <div class="info-row">
                         <span class="info-label">
-                            Customer Retention Rate
+                            <span class="material-symbols-outlined">mail</span>
+                            Email Support
                         </span>
-                        <span class="info-value">
-                            92%
+                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
+                            Email
                         </span>
                     </div>
 
@@ -1219,12 +1168,12 @@
             </div>
         </div>
 
-        <!-- ===== PROJECTS (INVENTORY) ===== -->
+        <!-- ===== MY PRODUCTS ===== -->
         <div class="content" id="page-projects" style="padding:22px;">
 
-            <div class="page-title">Inventory Management</div>
+            <div class="page-title">My Products</div>
             <div class="page-sub">
-                Monitor chemical stock, batch tracking and inventory status
+                Products you've purchased from Stackly, with quick reorder access
             </div>
 
             <div class="cards">
@@ -1234,154 +1183,92 @@
                         <i class="fa-solid fa-flask"></i>
                     </div>
                     <div>
-                        <h2>325</h2>
-                        <p>Total Products</p>
+                        <h2>12</h2>
+                        <p>Total Products Purchased</p>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-icon gold">
-                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <i class="fa-solid fa-layer-group"></i>
                     </div>
                     <div>
-                        <h2>88</h2>
-                        <p>Low Stock Items</p>
+                        <h2>Solvents</h2>
+                        <p>Most Ordered Category</p>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-icon green">
-                        <i class="fa-solid fa-check-circle"></i>
-                    </div>
+                        <i class="fa-solid fa-rotate"></i>
+                        </div>
                     <div>
-                        <h2>198</h2>
-                        <p>Available Products</p>
+                        <h2>6</h2>
+                        <p>Repeat Orders This Year</p>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-icon red">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
                     </div>
                     <div>
-                        <h2>45</h2>
-                        <p>Expiring Soon</p>
+                        <h2>₹18.6L</h2>
+                        <p>Total Spent on Products</p>
                     </div>
                 </div>
 
             </div>
 
-            <div class="table-box">
+            <div class="table-header" style="margin-bottom:16px;">
+                <h2 style="color:#0f172a;font-size:16px;">Purchased Products</h2>
+            </div>
 
-                <div class="table-header">
-                    <h2>Chemical Inventory</h2>
+            <div class="product-grid">
 
-                    <div style="display:flex;gap:10px;">
-                        <button class="btn-outline errorpage">
-                            Filter
-                        </button>
-
-                        <button class="btn-gold errorpage">
-                            + Add Product
-                        </button>
+                <div class="product-card">
+                    <div class="product-card-img">
+                        <img src="https://images.unsplash.com/photo-1614283226124-5a2f0f23752b?auto=format&fit=crop&w=400&q=80" alt="Industrial Solvent X40">
                     </div>
-
+                    <div class="product-card-body">
+                        <h4>Industrial Solvent X40</h4>
+                        <p>Ordered 14 times • Solvents</p>
+                        <button class="errorpage">Reorder</button>
+                    </div>
                 </div>
 
-                <table>
+                <div class="product-card">
+                    <div class="product-card-img">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=400&q=80" alt="ColorFix Dye 500">
+                    </div>
+                    <div class="product-card-body">
+                        <h4>ColorFix Dye 500</h4>
+                        <p>Ordered 9 times • Specialty Compounds</p>
+                        <button class="errorpage">Reorder</button>
+                    </div>
+                </div>
 
-                    <thead>
-                        <tr>
-                            <th>Batch ID</th>
-                            <th>Product Name</th>
-                            <th>Category</th>
-                            <th>Supplier</th>
-                            <th>Stock</th>
-                            <th>Status</th>
-                            <th>Expiry Date</th>
-                        </tr>
-                    </thead>
+                <div class="product-card">
+                    <div class="product-card-img">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=400&q=80" alt="ClearCoat Resin 100">
+                    </div>
+                    <div class="product-card-body">
+                        <h4>ClearCoat Resin 100</h4>
+                        <p>Ordered 6 times • Coatings</p>
+                        <button class="errorpage">Reorder</button>
+                    </div>
+                </div>
 
-                    <tbody>
-
-                        <tr>
-                            <td>#CHM-1024</td>
-                            <td>
-                                <div class="table-avatar-wrap">
-                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1614283226124-5a2f0f23752b?auto=format&fit=crop&w=100&q=80" alt="Industrial Solvent X40">
-                                    Industrial Solvent X40
-                                </div>
-                            </td>
-                            <td>Solvents</td>
-                            <td>PetroChem Supplies</td>
-                            <td>1250</td>
-                            <td><span class="status s-active">Available</span></td>
-                            <td>15 Dec 2027</td>
-                        </tr>
-
-                        <tr>
-                            <td>#CHM-1023</td>
-                            <td>
-                                <div class="table-avatar-wrap">
-                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&w=100&q=80" alt="AgroBoost NPK 25">
-                                    AgroBoost NPK 25
-                                </div>
-                            </td>
-                            <td>Agro Chemicals</td>
-                            <td>GreenField Agro</td>
-                            <td>420</td>
-                            <td><span class="status s-pending">Low Stock</span></td>
-                            <td>20 Oct 2027</td>
-                        </tr>
-
-                        <tr>
-                            <td>#CHM-1022</td>
-                            <td>
-                                <div class="table-avatar-wrap">
-                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=100&q=80" alt="ColorFix Dye 500">
-                                    ColorFix Dye 500
-                                </div>
-                            </td>
-                            <td>Specialty Compounds</td>
-                            <td>ChromaTech Industries</td>
-                            <td>980</td>
-                            <td><span class="status s-active">Available</span></td>
-                            <td>11 Jan 2028</td>
-                        </tr>
-
-                        <tr>
-                            <td>#CHM-1021</td>
-                            <td>
-                                <div class="table-avatar-wrap">
-                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=100&q=80" alt="ClearCoat Resin 100">
-                                    ClearCoat Resin 100
-                                </div>
-                            </td>
-                            <td>Coatings</td>
-                            <td>ResinWorks Ltd</td>
-                            <td>160</td>
-                            <td><span class="status s-pending">Low Stock</span></td>
-                            <td>05 Aug 2027</td>
-                        </tr>
-
-                        <tr>
-                            <td>#CHM-1020</td>
-                            <td>
-                                <div class="table-avatar-wrap">
-                                    <img class="product-thumb" src="https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=100&q=80" alt="BondSet Adhesive 250">
-                                    BondSet Adhesive 250
-                                </div>
-                            </td>
-                            <td>Adhesives</td>
-                            <td>BondTech Materials</td>
-                            <td>0</td>
-                            <td><span class="status s-closed">Out of Stock</span></td>
-                            <td>12 Jul 2027</td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
+                <div class="product-card">
+                    <div class="product-card-img">
+                        <img src="https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=400&q=80" alt="BondSet Adhesive 250">
+                    </div>
+                    <div class="product-card-body">
+                        <h4>BondSet Adhesive 250</h4>
+                        <p>Ordered 4 times • Adhesives</p>
+                        <button class="errorpage">Reorder</button>
+                    </div>
+                </div>
 
             </div>
 
@@ -1391,37 +1278,27 @@
 
                     <h3>
                         <i class="fa-solid fa-chart-pie"></i>
-                        Product Category Breakdown
+                        Purchases by Category
                     </h3>
 
                     <div class="info-row">
                         <span class="info-label">Solvents</span>
-                        <span class="info-value">120</span>
-                    </div>
-
-                    <div class="info-row">
-                        <span class="info-label">Agro Chemicals</span>
-                        <span class="info-value">95</span>
+                        <span class="info-value">14 Orders</span>
                     </div>
 
                     <div class="info-row">
                         <span class="info-label">Specialty Compounds</span>
-                        <span class="info-value">72</span>
+                        <span class="info-value">9 Orders</span>
                     </div>
 
                     <div class="info-row">
                         <span class="info-label">Coatings</span>
-                        <span class="info-value">58</span>
+                        <span class="info-value">6 Orders</span>
                     </div>
 
                     <div class="info-row">
                         <span class="info-label">Adhesives</span>
-                        <span class="info-value">35</span>
-                    </div>
-
-                    <div class="info-row">
-                        <span class="info-label">Lab Reagents</span>
-                        <span class="info-value">45</span>
+                        <span class="info-value">4 Orders</span>
                     </div>
 
                 </div>
@@ -1430,13 +1307,13 @@
 
                     <h3>
                         <i class="fa-solid fa-file-lines"></i>
-                        Recent Inventory Reports
+                        Product Data Sheets
                     </h3>
 
                     <div class="info-row">
                         <span class="info-label">
                             <span class="material-symbols-outlined">description</span>
-                            Stock_Report_June.pdf
+                            Industrial__X40_MSDS.pdf
                         </span>
                         <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
                             View
@@ -1446,7 +1323,7 @@
                     <div class="info-row">
                         <span class="info-label">
                             <span class="material-symbols-outlined">description</span>
-                            Expiry_Items.pdf
+                            ColorFix_500_Spec.pdf
                         </span>
                         <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
                             View
@@ -1456,27 +1333,7 @@
                     <div class="info-row">
                         <span class="info-label">
                             <span class="material-symbols-outlined">description</span>
-                            Supplier_Report.pdf
-                        </span>
-                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
-                            View
-                        </span>
-                    </div>
-
-                    <div class="info-row">
-                        <span class="info-label">
-                            <span class="material-symbols-outlined">description</span>
-                            Batch_Tracking.pdf
-                        </span>
-                        <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
-                            View
-                        </span>
-                    </div>
-
-                    <div class="info-row">
-                        <span class="info-label">
-                            <span class="material-symbols-outlined">description</span>
-                            Chemical_Audit.pdf
+                            ClearCoat_100_Spec.pdf
                         </span>
                         <span class="info-value errorpage" style="color:#60a5fa;font-size:12px;">
                             View
@@ -1488,14 +1345,14 @@
             </div>
 
         </div>
-        <!-- ===== MEETINGS (ORDERS & DELIVERIES) ===== -->
+        <!-- ===== DELIVERIES & TRACKING ===== -->
         <div class="content" id="page-meetings" style="padding:22px;">
 
 
-            <div class="page-title">Orders & Deliveries</div>
+            <div class="page-title">Deliveries & Tracking</div>
 
             <div class="page-sub">
-                Manage chemical orders, deliveries and supplier schedules
+                Track the status of your shipments from dispatch to delivery
             </div>
 
             <div class="cards">
@@ -1505,18 +1362,18 @@
                         <i class="fa-solid fa-truck"></i>
                     </div>
                     <div>
-                        <h2>12</h2>
-                        <p>Today's Deliveries</p>
+                        <h2>3</h2>
+                        <p>Upcoming Deliveries</p>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-icon gold">
-                        <i class="fa-solid fa-calendar-week"></i>
+                        <i class="fa-solid fa-route"></i>
                     </div>
                     <div>
-                        <h2>34</h2>
-                        <p>This Week Orders</p>
+                        <h2>2</h2>
+                        <p>In Transit</p>
                     </div>
                 </div>
 
@@ -1525,8 +1382,8 @@
                         <i class="fa-solid fa-box-open"></i>
                     </div>
                     <div>
-                        <h2>8</h2>
-                        <p>Pending Shipments</p>
+                        <h2>39</h2>
+                        <p>Delivered This Year</p>
                     </div>
                 </div>
 
@@ -1535,8 +1392,8 @@
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
                     <div>
-                        <h2>3</h2>
-                        <p>Delayed Deliveries</p>
+                        <h2>1</h2>
+                        <p>Delayed Delivery</p>
                     </div>
                 </div>
 
@@ -1545,9 +1402,9 @@
             <div class="table-box">
 
                 <div class="table-header">
-                    <h2>Upcoming Deliveries</h2>
-                    <button class="btn-gold errorpage">
-                        + New Order
+                    <h2>Shipment Tracking</h2>
+                    <button class="btn-outline errorpage">
+                        Track by Order ID
                     </button>
                 </div>
 
@@ -1562,7 +1419,7 @@
 
                         <div>
                             <div class="meeting-title">
-                                Industrial Solvent X40 – Apollo Textiles Ltd
+                                #ORD-3041 – Industrial Solvent X40
                             </div>
 
                             <div class="meeting-meta">
@@ -1577,8 +1434,8 @@
                                 </span>
 
                                 <span>
-                                    <i class="fa-solid fa-user"></i>
-                                    David Lee
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                    Tracking: ST-88213
                                 </span>
                             </div>
                         </div>
@@ -1598,7 +1455,7 @@
 
                         <div>
                             <div class="meeting-title">
-                                AgroBoost NPK 25 – MedPlus Agro Industries
+                                #ORD-3042 – ColorFix Dye 500
                             </div>
 
                             <div class="meeting-meta">
@@ -1613,13 +1470,13 @@
                                 </span>
 
                                 <span>
-                                    <i class="fa-solid fa-user"></i>
-                                    Alex Kumar
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                    Tracking: ST-88240
                                 </span>
                             </div>
                         </div>
 
-                        <span class="badge s-blue" style="margin-left:auto;white-space:nowrap;">
+                        <span class="status s-blue" style="margin-left:auto;white-space:nowrap;padding:5px 12px;border-radius:20px;">
                             Scheduled
                         </span>
 
@@ -1634,7 +1491,7 @@
 
                         <div>
                             <div class="meeting-title">
-                                ColorFix Dye 500 – Global Textiles Corp
+                                #ORD-3043 – ClearCoat Resin 100
                             </div>
 
                             <div class="meeting-meta">
@@ -1649,8 +1506,8 @@
                                 </span>
 
                                 <span>
-                                    <i class="fa-solid fa-user"></i>
-                                    Priya Sharma
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                    Tracking: ST-88251
                                 </span>
                             </div>
                         </div>
@@ -1669,57 +1526,118 @@
         </div>
 
 
-        <!-- ===== REPORTS (SALES & ANALYTICS) ===== -->
+        <!-- ===== INVOICES & PAYMENTS ===== -->
         <div class="content" id="page-reports" style="padding:22px;">
 
-            <div class="page-title">Sales & Analytics</div>
+            <div class="page-title">Invoices & Payments</div>
 
             <div class="page-sub">
-                Chemical manufacturing business performance overview and sales insights
+                View, download and pay your Stackly invoices in one place
             </div>
 
             <div class="cards">
 
                 <div class="card">
                     <div class="card-icon green">
-                        <i class="fa-solid fa-money-bill-wave"></i>
+                        <i class="fa-solid fa-file-invoice"></i>
                     </div>
                     <div>
-                        <h2>$154,500</h2>
-                        <p>Total Sales Revenue</p>
+                        <h2>₹18.6L</h2>
+                        <p>Total Invoiced</p>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-icon blue">
-                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <i class="fa-solid fa-circle-check"></i>
                     </div>
                     <div>
-                        <h2>+24%</h2>
-                        <p>Growth This Month</p>
+                        <h2>₹16.9L</h2>
+                        <p>Paid</p>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-icon gold">
-                        <i class="fa-solid fa-flask"></i>
+                        <i class="fa-solid fa-hourglass-half"></i>
                     </div>
                     <div>
-                        <h2>89%</h2>
-                        <p>Product Availability</p>
+                        <h2>₹1.7L</h2>
+                        <p>Outstanding</p>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-icon red">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <i class="fa-solid fa-calendar-day"></i>
                     </div>
                     <div>
-                        <h2>$12,800</h2>
-                        <p>Pending Payments</p>
+                        <h2>28 Jun</h2>
+                        <p>Next Payment Due</p>
                     </div>
                 </div>
 
+            </div>
+
+            <div class="table-box">
+
+                <div class="table-header">
+                    <h2>Invoice History</h2>
+                    <button class="btn-outline errorpage">Download All</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice ID</th>
+                            <th>Order ID</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Due Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>#INV-9041</td>
+                            <td>#ORD-3041</td>
+                            <td>₹1,45,000</td>
+                            <td><span class="status s-active">Paid</span></td>
+                            <td>15 Jun 2026</td>
+                            <td><button class="btn-outline errorpage">View</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>#INV-9042</td>
+                            <td>#ORD-3042</td>
+                            <td>₹86,000</td>
+                            <td><span class="status s-pending">Pending</span></td>
+                            <td>28 Jun 2026</td>
+                            <td><button class="btn-outline errorpage">Pay Now</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>#INV-9043</td>
+                            <td>#ORD-3043</td>
+                            <td>₹54,500</td>
+                            <td><span class="status s-pending">Pending</span></td>
+                            <td>30 Jun 2026</td>
+                            <td><button class="btn-outline errorpage">Pay Now</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>#INV-9038</td>
+                            <td>#ORD-3038</td>
+                            <td>₹78,000</td>
+                            <td><span class="status s-active">Paid</span></td>
+                            <td>05 Jun 2026</td>
+                            <td><button class="btn-outline errorpage">View</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
 
             <div class="grid-2">
@@ -1727,127 +1645,56 @@
                 <div class="info-box">
 
                     <h3>
-                        <i class="fa-solid fa-chart-bar"></i>
-                        Revenue by Product Category
+                        <i class="fa-solid fa-credit-card"></i>
+                        Payment Methods
                     </h3>
 
-                    <div class="report-card" style="background:#f3f3f3;border:none;">
-                        <div class="report-title">Industrial Solvents</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:80%"></div>
-                        </div>
-                        <div class="progress-label">
-                            <span>$48,400</span>
-                            <span>80%</span>
-                        </div>
+                    <div class="info-row">
+                        <span class="info-label">Primary Method</span>
+                        <span class="info-value">Bank Transfer</span>
                     </div>
 
-                    <div class="report-card" style="background:#f3f3f3;border:none;">
-                        <div class="report-title">Agro Chemicals</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:65%"></div>
-                        </div>
-                        <div class="progress-label">
-                            <span>$34,900</span>
-                            <span>65%</span>
-                        </div>
+                    <div class="info-row">
+                        <span class="info-label">Billing Contact</span>
+                        <span class="info-value">accounts@gmail.com</span>
                     </div>
 
-                    <div class="report-card" style="background:#f3f3f3;border:none;">
-                        <div class="report-title">Specialty Compounds</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:55%"></div>
-                        </div>
-                        <div class="progress-label">
-                            <span>$28,300</span>
-                            <span>55%</span>
-                        </div>
+                    <div class="info-row">
+                        <span class="info-label">Credit Terms</span>
+                        <span class="info-value">Net 30 Days</span>
                     </div>
 
-                    <div class="report-card" style="background:#f3f3f3;border:none;">
-                        <div class="report-title">Coatings & Adhesives</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:45%"></div>
-                        </div>
-                        <div class="progress-label">
-                            <span>$21,900</span>
-                            <span>45%</span>
-                        </div>
-                    </div>
+                    <button class="btn-outline errorpage" style="width:100%;margin-top:10px;padding:10px;">
+                        Manage Payment Methods
+                    </button>
 
                 </div>
 
                 <div class="info-box">
 
                     <h3>
-                        <i class="fa-solid fa-user-tie"></i>
-                        Sales Team Performance
+                        <i class="fa-solid fa-chart-line"></i>
+                        Billing Summary
                     </h3>
 
-                    <div style="margin-bottom:14px;">
-                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-                            <span style="color:#334155;font-size:13px;">
-                                David Lee
-                            </span>
-                            <span style="color:#0D80CE;font-size:13px;">
-                                142 Orders • 88%
-                            </span>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:88%"></div>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom:14px;">
-                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-                            <span style="color:#334155;font-size:13px;">
-                                Alex Kumar
-                            </span>
-                            <span style="color:#0D80CE;font-size:13px;">
-                                121 Orders • 79%
-                            </span>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:79%"></div>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom:14px;">
-                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-                            <span style="color:#334155;font-size:13px;">
-                                Priya Sharma
-                            </span>
-                            <span style="color:#0D80CE;font-size:13px;">
-                                98 Orders • 72%
-                            </span>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:72%"></div>
-                        </div>
-                    </div>
-
-                    <div class="info-row" style="margin-top:12px;">
-                        <span class="info-label">Monthly Sales Target</span>
-                        <span class="info-value" style="color:#4ade80;">
-                            $180,000
-                        </span>
+                    <div class="info-row">
+                        <span class="info-label">This Year Spend</span>
+                        <span class="info-value">₹18.6L</span>
                     </div>
 
                     <div class="info-row">
-                        <span class="info-label">Achieved</span>
-                        <span class="info-value" style="color:#0D80CE;">
-                            $154,500 (86%)
-                        </span>
+                        <span class="info-label">Last Year Spend</span>
+                        <span class="info-value">₹14.2L</span>
                     </div>
 
                     <div class="info-row">
-                        <span class="info-label">Outstanding Payments</span>
-                        <span class="info-value" style="color:#f87171;">
-                            $12,800
-                        </span>
+                        <span class="info-label">Average Monthly Spend</span>
+                        <span class="info-value">₹1.55L</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Outstanding Balance</span>
+                        <span class="info-value" style="color:#f87171;">₹1.7L</span>
                     </div>
 
                 </div>
@@ -1865,7 +1712,7 @@
             <div class="page-title">Settings</div>
 
             <div class="page-sub">
-                Manage company profile, inventory preferences and account settings
+                Manage your account profile, delivery details and preferences
             </div>
 
             <div class="grid-2">
@@ -1883,13 +1730,13 @@
                             Company Name
                         </label>
 
-                        <input class="input-field" value="Stackly Chemical Manufacturing">
+                        <input class="input-field" value="Apollo Textiles Ltd">
 
                         <label style="color:black;font-size:12px;">
                             Email Address
                         </label>
 
-                        <input class="input-field" value="admin@stackly.com">
+                        <input class="input-field" value="ramesh@apollotextiles.com">
 
                         <label style="color:black;font-size:12px;">
                             Contact Number
@@ -1898,10 +1745,10 @@
                         <input class="input-field" value="+91 98765 43210">
 
                         <label style="color:black;font-size:12px;">
-                            Head Office Address
+                            Delivery Address
                         </label>
 
-                        <input class="input-field" value="123, Anna Nagar, Chennai, Tamil Nadu - 600040">
+                        <input class="input-field" value="14, Industrial Estate, Guindy, Chennai - 600032">
 
                         <button class="btn-gold" style="width:100%;padding:12px;border-radius:12px;margin-top:4px;">
                             Save Changes
@@ -1958,10 +1805,10 @@
                         <div class="setting-row">
                             <div>
                                 <div class="setting-label">
-                                    Low Stock Alerts
+                                    Order Status Updates
                                 </div>
                                 <div class="setting-desc">
-                                    Get alerts when stock is running low
+                                    Get notified when your order status changes
                                 </div>
                             </div>
                             <div class="toggle on" onclick="this.classList.toggle('on')"></div>
@@ -1970,10 +1817,10 @@
                         <div class="setting-row">
                             <div>
                                 <div class="setting-label">
-                                    New Orders
+                                    Delivery Alerts
                                 </div>
                                 <div class="setting-desc">
-                                    Notify when a new order is received
+                                    Notify when a shipment is out for delivery
                                 </div>
                             </div>
                             <div class="toggle on" onclick="this.classList.toggle('on')"></div>
@@ -1982,10 +1829,10 @@
                         <div class="setting-row">
                             <div>
                                 <div class="setting-label">
-                                    Payment Confirmation
+                                    Invoice Reminders
                                 </div>
                                 <div class="setting-desc">
-                                    Alert when payment is received
+                                    Remind me before an invoice is due
                                 </div>
                             </div>
                             <div class="toggle on" onclick="this.classList.toggle('on')"></div>
@@ -1994,13 +1841,13 @@
                         <div class="setting-row">
                             <div>
                                 <div class="setting-label">
-                                    Expiry Notifications
+                                    Promotional Offers
                                 </div>
                                 <div class="setting-desc">
-                                    Notify for expiring chemical batches
+                                    Receive updates on new products and offers
                                 </div>
                             </div>
-                            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+                            <div class="toggle" onclick="this.classList.toggle('on')"></div>
                         </div>
 
                     </div>
@@ -2027,13 +1874,13 @@
                         <div class="setting-row">
                             <div>
                                 <div class="setting-label">
-                                    Auto Inventory Backup
+                                    Auto-Pay Invoices
                                 </div>
                                 <div class="setting-desc">
-                                    Automatically backup stock records
+                                    Automatically pay invoices on due date
                                 </div>
                             </div>
-                            <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+                            <div class="toggle" onclick="this.classList.toggle('on')"></div>
                         </div>
 
                         <div class="setting-row">
@@ -2054,38 +1901,38 @@
 
                         <h3>
                             <i class="fa-solid fa-users-gear"></i>
-                            Employee Access Control
+                            Team Access
                         </h3>
 
                         <div class="info-row">
                             <span class="info-label">
-                                David Lee
+                                Ramesh Iyer
                             </span>
                             <span class="status s-active">
-                                Admin
+                                Owner
                             </span>
                         </div>
 
                         <div class="info-row">
                             <span class="info-label">
-                                Alex Kumar
+                                Kavitha Nair
                             </span>
                             <span class="status s-blue">
-                                Manager
+                                Procurement
                             </span>
                         </div>
 
                         <div class="info-row">
                             <span class="info-label">
-                                Priya Sharma
+                                Suresh Babu
                             </span>
                             <span class="status s-pending">
-                                Staff
+                                Accounts
                             </span>
                         </div>
 
                         <button class="btn-outline errorpage" style="width:100%;margin-top:14px;padding:10px;">
-                            Manage Access
+                            Invite Team Member
                         </button>
 
                     </div>
@@ -2102,8 +1949,7 @@
         const menuItems = document.querySelectorAll('.menu li[data-page]');
         const pages = document.querySelectorAll('.content');
         const pageTitle = document.getElementById('pageTitle');
-        const pageTitles = { dashboard: 'Dashboard', clients: 'Clients', projects: 'Inventory', meetings: 'Orders & Deliveries', reports: 'Sales & Analytics' };
-//           const pageTitles = { dashboard: 'Dashboard', clients: 'Clients', projects: 'Inventory', meetings: 'Orders & Deliveries', reports: 'Sales & Analytics', settings: 'Settings' };
+        const pageTitles = { dashboard: 'Dashboard', clients: 'My Orders', projects: 'My Products', meetings: 'Deliveries & Tracking', reports: 'Invoices & Payments', settings: 'Settings' };
 
         menuItems.forEach(item => {
             item.addEventListener('click', () => {
@@ -2126,142 +1972,142 @@
 
         document.getElementById('logoutItem').addEventListener('click', () => {
 
-            localStorage.removeItem('adminEmail');
+            localStorage.removeItem('clientEmail');
 
             window.location.href = 'index.html';
 
         });
-        const savedEmail = localStorage.getItem('adminEmail');
+        const savedEmail = localStorage.getItem('clientEmail');
         if (savedEmail) {
             document.getElementById('adminEmail').innerText = savedEmail;
         }
 
         /* ===== INPUT VALIDATION ===== */
-     //   const firmName = document.querySelector('input[value="Stackly Chemical Manufacturing"]');
-     //   const emailField = document.querySelector('input[value="admin@stackly.com"]');
-     //   const phoneField = document.querySelector('input[value="+91 98765 43210"]');
-     //   const addressField = document.querySelector('input[value="123, Anna Nagar, Chennai, Tamil Nadu - 600040"]');
+    //  const firmName = document.querySelector('input[value="Apollo Textiles Ltd"]');
+    //  const emailField = document.querySelector('input[value="ramesh@apollotextiles.com"]');
+    //  const phoneField = document.querySelector('input[value="+91 98765 43210"]');
+    //  const addressField = document.querySelector('input[value="14, Industrial Estate, Guindy, Chennai - 600032"]');
 //
-     //   const currentPassword = document.querySelector('input[placeholder="Enter Current Password"]');
-     //   const newPassword = document.querySelector('input[placeholder="Enter New Password"]');
-//
-//
-     //   /* NAME FIELD -> NO NUMBERS */
-//
-     //   firmName.addEventListener("input", () => {
-//
-     //       firmName.value = firmName.value.replace(/[^a-zA-Z\s.&]/g, '');
-//
-     //   });
+    //  const currentPassword = document.querySelector('input[placeholder="Enter Current Password"]');
+    //  const newPassword = document.querySelector('input[placeholder="Enter New Password"]');
 //
 //
-     //   /* PHONE FIELD -> ONLY NUMBERS */
+    //  /* NAME FIELD -> NO NUMBERS */
 //
-     //   phoneField.addEventListener("input", () => {
+    //  firmName.addEventListener("input", () => {
 //
-     //       phoneField.value = phoneField.value.replace(/[^0-9+ ]/g, '');
+    //      firmName.value = firmName.value.replace(/[^a-zA-Z\s.&]/g, '');
 //
-     //   });
-//
-//
-     //   /* EMAIL VALIDATION */
-//
-     //   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    //  });
 //
 //
-     //   /* ===== SAVE CHANGES VALIDATION ===== */
+    //  /* PHONE FIELD -> ONLY NUMBERS */
 //
-     //   const saveBtn = document.querySelector('.setting-section .btn-gold');
+    //  phoneField.addEventListener("input", () => {
 //
-     //   saveBtn.addEventListener("click", () => {
+    //      phoneField.value = phoneField.value.replace(/[^0-9+ ]/g, '');
 //
-     //       if (
-     //           firmName.value.trim() === "" ||
-     //           emailField.value.trim() === "" ||
-     //           phoneField.value.trim() === "" ||
-     //           addressField.value.trim() === ""
-     //       ) {
-//
-     //           alert("Please fill all fields");
-     //           return;
-//
-     //       }
-//
-     //       /* CHECK EMAIL FORMAT */
-//
-     //       if (!emailPattern.test(emailField.value)) {
-//
-     //           alert("Please enter valid email");
-     //           return;
-//
-     //       }
-//
-     //       alert("Profile Updated Successfully");
-//
-     //   });
+    //  });
 //
 //
-     //   /* ===== CHANGE PASSWORD VALIDATION ===== */
+    //  /* EMAIL VALIDATION */
 //
-     //   const passwordBtn = document.querySelectorAll('.setting-section .btn-gold')[1];
-//
-     //   passwordBtn.addEventListener("click", () => {
-//
-     //       if (
-     //           currentPassword.value.trim() === "" ||
-     //           newPassword.value.trim() === ""
-     //       ) {
-//
-     //           alert("Please fill all password fields");
-     //           return;
-//
-     //       }
-//
-     //       /* PASSWORD LENGTH */
-//
-     //       if (newPassword.value.length < 6) {
-//
-     //           alert("New Password must be at least 6 characters");
-     //           return;
-//
-     //       }
-//
-     //       alert("Password Changed Successfully");
-//
-     //       /* CLEAR PASSWORD FIELDS */
-//
-     //       currentPassword.value = "";
-     //       newPassword.value = "";
-//
-     //   });
-//
-     //   //password eye
-//
-     //   const passeye = document.querySelectorAll(".pass-icon")
-//
-     //   passeye.forEach((eyebtn) => {
-//
-     //       const input =
-     //           eyebtn.parentElement.querySelector("input");
-     //       eyebtn.addEventListener("click", () => {
-//
-     //           if (input.type === "password") {
-     //               input.type = "text"
-     //               eyebtn.textContent = "visibility"
-     //           }
-//
-     //           else {
-     //               input.type = "password"
-     //               eyebtn.textContent = "visibility_off"
-     //           }
-//
-     //       })
+    //  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 //
 //
-     //   })
+    //  /* ===== SAVE CHANGES VALIDATION ===== */
 //
-     //   /* ===== ERROR PAGE REDIRECT ===== */
+    //  const saveBtn = document.querySelector('.setting-section .btn-gold');
 //
+    //  saveBtn.addEventListener("click", () => {
+//
+    //      if (
+    //          firmName.value.trim() === "" ||
+    //          emailField.value.trim() === "" ||
+    //          phoneField.value.trim() === "" ||
+    //          addressField.value.trim() === ""
+    //      ) {
+//
+    //          alert("Please fill all fields");
+    //          return;
+//
+    //      }
+//
+    //      /* CHECK EMAIL FORMAT */
+//
+    //      if (!emailPattern.test(emailField.value)) {
+//
+    //          alert("Please enter valid email");
+    //          return;
+//
+    //      }
+//
+    //      alert("Profile Updated Successfully");
+//
+    //  });
+//
+//
+    //  /* ===== CHANGE PASSWORD VALIDATION ===== */
+//
+    //  const passwordBtn = document.querySelectorAll('.setting-section .btn-gold')[1];
+//
+    //  passwordBtn.addEventListener("click", () => {
+//
+    //      if (
+    //          currentPassword.value.trim() === "" ||
+    //          newPassword.value.trim() === ""
+    //      ) {
+//
+    //          alert("Please fill all password fields");
+    //          return;
+//
+    //      }
+//
+    //      /* PASSWORD LENGTH */
+//
+    //      if (newPassword.value.length < 6) {
+//
+    //          alert("New Password must be at least 6 characters");
+    //          return;
+//
+    //      }
+//
+    //      alert("Password Changed Successfully");
+//
+    //      /* CLEAR PASSWORD FIELDS */
+//
+    //      currentPassword.value = "";
+    //      newPassword.value = "";
+//
+    //  });
+//
+    //  //password eye
+//
+    //  const passeye = document.querySelectorAll(".pass-icon")
+//
+    //  passeye.forEach((eyebtn) => {
+//
+    //      const input =
+    //          eyebtn.parentElement.querySelector("input");
+    //      eyebtn.addEventListener("click", () => {
+//
+    //          if (input.type === "password") {
+    //              input.type = "text"
+    //              eyebtn.textContent = "visibility"
+    //          }
+//
+    //          else {
+    //              input.type = "password"
+    //              eyebtn.textContent = "visibility_off"
+    //          }
+//
+    //      })
+//
+//
+    //  })
+
+        /* ===== ERROR PAGE REDIRECT ===== */
+
         const errorPages = document.querySelectorAll('.errorpage');
 
         errorPages.forEach((item) => {

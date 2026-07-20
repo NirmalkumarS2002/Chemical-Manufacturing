@@ -1,16 +1,23 @@
-<!-- ============================================================
-     Stackly Chemical Manufacturing — 6 Blog-Page Sections
-     Theme-matched: same --pcolor / --scolor variables, Sora + Inter
-     fonts, Material Symbols icons. NO navbar, NO footer included.
-     Paste this block into your Blog page between header & footer.
-     ============================================================ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
+    
 <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,-50..200" />
 <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="style.css">
 
 <style>
     :root {
@@ -47,7 +54,8 @@
         font-size: 20px;
     }
 
-    .sb-btn-solid, .sb-btn-outline {
+    .sb-btn-solid,
+    .sb-btn-outline {
         padding: 15px 34px;
         border-radius: 7px;
         font-size: 15px;
@@ -76,7 +84,7 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        background: rgba(13,128,206,0.1);
+        background: rgba(13, 128, 206, 0.1);
         color: var(--pcolor);
         font-size: 12px;
         font-weight: 600;
@@ -89,7 +97,7 @@
     /* ============ 1. BLOG HERO ============ */
     .sb-hero {
         position: relative;
-        min-height: 400px;
+        min-height: 70vh;
         display: flex;
         align-items: center;
         padding: 60px 80px;
@@ -118,8 +126,17 @@
         max-width: 540px;
     }
 
-    @media (max-width:900px) { .sb-hero { padding: 40px; min-height: 300px; } }
-    @media (max-width:560px) { .sb-hero { padding: 25px; } }
+    @media (max-width:900px) {
+        .sb-hero {
+            padding: 40px;
+        }
+    }
+
+    @media (max-width:560px) {
+        .sb-hero {
+            padding: 25px;
+        }
+    }
 
     /* ============ 2. FEATURED ARTICLE ============ */
     .sb-featured {
@@ -188,10 +205,21 @@
     }
 
     @media (max-width:900px) {
-        .sb-featured { padding: 45px 30px 20px 30px; }
-        .sb-featured-card { grid-template-columns: 1fr; }
-        .sb-featured-img { min-height: 220px; }
-        .sb-featured-text { padding: 30px; }
+        .sb-featured {
+            padding: 45px 30px 20px 30px;
+        }
+
+        .sb-featured-card {
+            grid-template-columns: 1fr;
+        }
+
+        .sb-featured-img {
+            min-height: 220px;
+        }
+
+        .sb-featured-text {
+            padding: 30px;
+        }
     }
 
     /* ============ 3. LATEST ARTICLES GRID ============ */
@@ -224,7 +252,7 @@
     }
 
     .sb-article-card:hover {
-        box-shadow: 0 15px 30px rgba(19,35,64,0.1);
+        box-shadow: 0 15px 30px rgba(19, 35, 64, 0.1);
         transform: translateY(-6px);
     }
 
@@ -276,11 +304,19 @@
     }
 
     @media (max-width:1080px) {
-        .sb-grid-section { padding: 30px 30px 60px 30px; }
-        .sb-articles-grid { grid-template-columns: 1fr 1fr; }
+        .sb-grid-section {
+            padding: 30px 30px 60px 30px;
+        }
+
+        .sb-articles-grid {
+            grid-template-columns: 1fr 1fr;
+        }
     }
+
     @media (max-width:560px) {
-        .sb-articles-grid { grid-template-columns: 1fr; }
+        .sb-articles-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     /* ============ 4. CATEGORIES ============ */
@@ -298,8 +334,8 @@
         margin-bottom: 12px;
     }
 
-    .sb-categories > p {
-        color: rgba(255,255,255,0.7);
+    .sb-categories>p {
+        color: rgba(255, 255, 255, 0.7);
         font-size: 14.5px;
         max-width: 520px;
         margin: 0 auto 45px auto;
@@ -312,8 +348,8 @@
     }
 
     .sb-cat-pill {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 10px;
         padding: 26px 10px;
         text-decoration: none;
@@ -344,11 +380,19 @@
     }
 
     @media (max-width:1080px) {
-        .sb-categories { padding: 50px 30px; }
-        .sb-cat-row { grid-template-columns: repeat(3, 1fr); }
+        .sb-categories {
+            padding: 50px 30px;
+        }
+
+        .sb-cat-row {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
+
     @media (max-width:560px) {
-        .sb-cat-row { grid-template-columns: repeat(2, 1fr); }
+        .sb-cat-row {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     /* ============ 5. NEWSLETTER ============ */
@@ -357,7 +401,7 @@
         padding: 80px;
         text-align: center;
         background:
-            linear-gradient(120deg, rgba(13,128,206,0.88), rgba(19,35,64,0.92)),
+            linear-gradient(120deg, rgba(13, 128, 206, 0.88), rgba(19, 35, 64, 0.92)),
             url("https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
     }
 
@@ -372,7 +416,7 @@
     }
 
     .sb-newsletter p {
-        color: rgba(255,255,255,0.85);
+        color: rgba(255, 255, 255, 0.85);
         font-size: 15px;
         max-width: 480px;
         margin: 0 auto 30px auto;
@@ -417,7 +461,11 @@
         background: var(--pcolor);
     }
 
-    @media (max-width:900px) { .sb-newsletter { padding: 55px 30px; } }
+    @media (max-width:900px) {
+        .sb-newsletter {
+            padding: 55px 30px;
+        }
+    }
 
     /* ============ 6. POPULAR TAGS ============ */
     .sb-tags {
@@ -444,10 +492,142 @@
         text-decoration: none;
     }
 
-    @media (max-width:900px) { .sb-tags { padding: 45px 25px; } }
+    @media (max-width:900px) {
+        .sb-tags {
+            padding: 45px 25px;
+        }
+    }
 </style>
+</head>
+<body>
+    
+        <header class="header">
+        <div class="imgwrap">
+            <a href="index.html"><img src="./src/logo.webp" alt="Company Logo" class="companylogo"></a>
+        </div>
+
+        <div class="headcontent-wrap">
+            <div class="head-section1">
+                <div class="head-top-content">
+
+                    <div class="head-details">
+                        <span class="material-symbols-outlined">call</span>
+                        <div>
+                            <p>Call</p>
+                            <a href="404.html">+91 12345 67890</a>
+                        </div>
+                    </div>
+
+                    <div class="head-details">
+                        <span class="material-symbols-outlined">send</span>
+                        <div>
+                            <p>Email</p>
+                            <a href="404.html">admin@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="head-details">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <div>
+                            <p>Location</p>
+                            <a href="404.html">Chennai,Tamilnadu</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="head-sotial-icons">
+                    <a href="404.html"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="head-section2">
+                <div class="nav-links">
+
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="pages.html">Pages</a>
+                    <a href="blog.html"  class="active">Blog</a>
+                    <a href="contact.html">Contact</a>
+
+                </div>
+
+                <div class="head-icons">
+                    <span class="material-symbols-outlined errorpage">search</span>
+                    <span class="material-symbols-outlined loginpage">person</span>
+                    <span class="material-symbols-outlined menu-btn">menu</span>
+                </div>
+
+                <div class="head-side-bar">
+
+                    <span class="material-symbols-outlined close-btn">close</span>
+
+                    <div class="sidelogo-wrap">
+                        <img src="./src/logo.webp" alt="company logo" class="sidelogo">
+                    </div>
+
+                    <div class="sidelinks">
+                        <a href="index.html">Home<span class="material-symbols-outlined">keyboard_arrow_right</span></a>
+                        <a href="about.html">About<span
+                                class="material-symbols-outlined">keyboard_arrow_right</span></a>
+                        <a href="pages.html">Pages<span
+                                class="material-symbols-outlined">keyboard_arrow_right</span></a>
+                        <a href="blog.html"  class="active">Blog<span class="material-symbols-outlined">keyboard_arrow_right</span></a>
+                        <a href="contact.html">Contact<span
+                                class="material-symbols-outlined">keyboard_arrow_right</span></a>
+                    </div>
+
+                    <div class="side-about-us">
+                        <h3>About Us</h3>
+
+                        <p>We are a trusted chemical manufacturing company
+                            committed to delivering high-quality and
+                            innovative chemical solutions for
+                            diverse industries.
+                        </p>
+
+                        <p>
+                            We strive to build long-term partnerships
+                            through excellence, integrity, and customer
+                            satisfaction.
+                        </p>
+                    </div>
+
+                    <div class="head-info">
+                        <h3>Contact Info</h3>
+
+                        <div class="side-contacts">
+                            <a href="404.html"><span class="material-symbols-outlined">call</span>+91 12345 67890</a>
+                            <a href="404.html"> <span class="material-symbols-outlined">mail</span>admin@gmail.com</a>
+                            <a href="404.html"> <span
+                                    class="material-symbols-outlined">location_on</span>Chennai,Tamilnadu</a>
+                        </div>
+                    </div>
+
+
+                    <div class="side-head-sotial">
+                        <h3>Social pages</h3>
+                        <div class="side-sotial-icons">
+                            <a href="404.html"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="404.html"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
 
 <div class="sb-section">
+
+    
+   
+
 
     <!-- 1. BLOG HERO -->
     <section class="sb-hero">
@@ -469,7 +649,8 @@
                 </div>
                 <span class="sb-tag">Featured</span>
                 <h2>Inside Our Reactor Upgrade: What Changed and Why It Matters</h2>
-                <p>A behind-the-scenes look at the new automated reactor line, the safety systems built into it, and how the upgrade cut batch variance across our solvent range.</p>
+                <p>A behind-the-scenes look at the new automated reactor line, the safety systems built into it, and how
+                    the upgrade cut batch variance across our solvent range.</p>
                 <a href="404.html">Read Full Article<span class="material-symbols-outlined">arrow_right_alt</span></a>
             </div>
         </div>
@@ -483,50 +664,68 @@
         </div>
         <div class="sb-articles-grid">
             <div class="sb-article-card">
-                <div class="sb-article-img"><img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80" alt="Quality testing"></div>
+                <div class="sb-article-img"><img
+                        src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80"
+                        alt="Quality testing"></div>
                 <div class="sb-article-text">
-                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>June 28, 2026</div>
+                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>June 28, 2026
+                    </div>
                     <h4>How We Test Every Batch Before It Ships</h4>
                     <p>A walkthrough of our lab's purity and stability testing process.</p>
                 </div>
             </div>
             <div class="sb-article-card">
-                <div class="sb-article-img"><img src="https://images.unsplash.com/photo-1614283226124-5a2f0f23752b?auto=format&fit=crop&w=600&q=80" alt="Solvent storage">
+                <div class="sb-article-img"><img
+                        src="https://images.unsplash.com/photo-1614283226124-5a2f0f23752b?auto=format&fit=crop&w=600&q=80"
+                        alt="Solvent storage">
                 </div>
                 <div class="sb-article-text">
-                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>June 15, 2026</div>
+                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>June 15, 2026
+                    </div>
                     <h4>Safe Storage Practices for Industrial Solvents</h4>
                     <p>Handling and storage guidelines our plant teams follow daily.</p>
                 </div>
             </div>
             <div class="sb-article-card">
-                <div class="sb-article-img"><img src="https://images.unsplash.com/photo-1578776349090-de61da00ff1a?auto=format&fit=crop&w=600&q=80" alt="Sustainability"></div>
+                <div class="sb-article-img"><img
+                        src="https://images.unsplash.com/photo-1578776349090-de61da00ff1a?auto=format&fit=crop&w=600&q=80"
+                        alt="Sustainability"></div>
                 <div class="sb-article-text">
-                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>May 30, 2026</div>
+                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>May 30, 2026
+                    </div>
                     <h4>Reducing Water Use Across Our Production Lines</h4>
                     <p>The recycling loop that cut our plant's water draw by a third.</p>
                 </div>
             </div>
             <div class="sb-article-card">
-                <div class="sb-article-img"><img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="Custom formulation"></div>
+                <div class="sb-article-img"><img
+                        src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80"
+                        alt="Custom formulation"></div>
                 <div class="sb-article-text">
-                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>May 18, 2026</div>
+                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>May 18, 2026
+                    </div>
                     <h4>What Goes Into a Custom Formulation Request</h4>
                     <p>The steps our R&amp;D team follows from brief to first sample.</p>
                 </div>
             </div>
             <div class="sb-article-card">
-                <div class="sb-article-img"><img src="https://images.unsplash.com/photo-1589725971211-7e86a631e2c2?auto=format&fit=crop&w=600&q=80" alt="Plant safety"></div>
+                <div class="sb-article-img"><img
+                        src="https://images.unsplash.com/photo-1589725971211-7e86a631e2c2?auto=format&fit=crop&w=600&q=80"
+                        alt="Plant safety"></div>
                 <div class="sb-article-text">
-                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>May 4, 2026</div>
+                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>May 4, 2026
+                    </div>
                     <h4>A Day Inside Our Plant Safety Drills</h4>
                     <p>Why we run monthly drills even on our best-performing lines.</p>
                 </div>
             </div>
             <div class="sb-article-card">
-                <div class="sb-article-img"><img src="https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&w=600&q=80" alt="Agro chemicals field"></div>
+                <div class="sb-article-img"><img
+                        src="https://images.unsplash.com/photo-1602052577122-f73b9710adba?auto=format&fit=crop&w=600&q=80"
+                        alt="Agro chemicals field"></div>
                 <div class="sb-article-text">
-                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>April 22, 2026</div>
+                    <div class="sb-article-date"><span class="material-symbols-outlined">schedule</span>April 22, 2026
+                    </div>
                     <h4>Choosing the Right Agro Chemical for Your Soil Type</h4>
                     <p>A short guide for buyers new to our agricultural product line.</p>
                 </div>
@@ -536,22 +735,37 @@
 
     <!-- 4. CATEGORIES -->
     <section class="sb-categories">
-        <h6 class="sb-eyebrow" style="justify-content:center;"><span class="material-symbols-outlined">category</span>Browse By Topic</h6>
+        <h6 class="sb-eyebrow" style="justify-content:center;"><span
+                class="material-symbols-outlined">category</span>Browse By Topic</h6>
         <h2>Categories</h2>
         <p>Jump straight to the topics most relevant to your work.</p>
         <div class="sb-cat-row">
-            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">science</span><p>Formulation</p></a>
-            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">health_and_safety</span><p>Safety</p></a>
-            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">eco</span><p>Sustainability</p></a>
-            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">precision_manufacturing</span><p>Production</p></a>
-            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">policy</span><p>Compliance</p></a>
-            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">agriculture</span><p>Agriculture</p></a>
+            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">science</span>
+                <p>Formulation</p>
+            </a>
+            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">health_and_safety</span>
+                <p>Safety</p>
+            </a>
+            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">eco</span>
+                <p>Sustainability</p>
+            </a>
+            <a href="404.html" class="sb-cat-pill"><span
+                    class="material-symbols-outlined">precision_manufacturing</span>
+                <p>Production</p>
+            </a>
+            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">policy</span>
+                <p>Compliance</p>
+            </a>
+            <a href="404.html" class="sb-cat-pill"><span class="material-symbols-outlined">agriculture</span>
+                <p>Agriculture</p>
+            </a>
         </div>
     </section>
 
     <!-- 5. NEWSLETTER -->
     <section class="sb-newsletter">
-        <h6 class="sb-eyebrow" style="justify-content:center; color:white;"><span class="material-symbols-outlined">mail</span>Stay Updated</h6>
+        <h6 class="sb-eyebrow" style="justify-content:center; color:white;"><span
+                class="material-symbols-outlined">mail</span>Stay Updated</h6>
         <h2>Get New Articles in Your Inbox</h2>
         <p>One email a month covering production updates, safety notes and industry insight. No spam.</p>
         <div class="sb-newsletter-form">
@@ -576,3 +790,107 @@
     </section>
 
 </div>
+
+ <footer class="footer">
+
+        <div class="footerhead">
+            <a href="index.html"><img src="./src/logo.webp" alt="Company Logo" class="footerlogo"></a>
+
+            <div class="footerform">
+                <input type="email" placeholder="Enter Your Email">
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+        </div>
+
+        <div class="footer1">
+
+            <div class="fsec1">
+
+                <h2>About Company</h2>
+
+                <p>We strive to build long-term partnerships
+                    through excellence and customer
+                    satisfaction.</p>
+
+                <h1>Since 2007</h1>
+
+            </div>
+
+            <div class="fersec2">
+                <h2>Quick Links</h2>
+
+                <div class="footerlinks">
+
+                    <a href="index.html"><span class="material-symbols-outlined farrow">arrow_forward</span>Home</a>
+                    <a href="about.html"><span class="material-symbols-outlined farrow">arrow_forward</span>About</a>
+                    <a href="pages.html"><span class="material-symbols-outlined farrow">arrow_forward</span>Pages</a>
+                    <a href="blog.html"><span class="material-symbols-outlined farrow">arrow_forward</span>Blog</a>
+                    <a href="contact.html"><span
+                            class="material-symbols-outlined farrow">arrow_forward</span>Contact</a>
+
+                </div>
+            </div>
+
+            <div class="fersec2">
+                <h2>Services</h2>
+
+                <div class="footerlinks">
+
+                    <a href="404.html"><span class="material-symbols-outlined farrow">arrow_forward</span>Service</a>
+                    <a href="404.html"><span class="material-symbols-outlined farrow">arrow_forward</span>Pricing</a>
+                    <a href="404.html"><span class="material-symbols-outlined farrow">arrow_forward</span>Team</a>
+                    <a href="404.html"><span class="material-symbols-outlined farrow">arrow_forward</span>Terms &
+                        conditions</a>
+                    <a href="404.html"><span class="material-symbols-outlined farrow">arrow_forward</span>Privacy
+                        Policy</a>
+
+                </div>
+            </div>
+
+            <div class="fersec2">
+
+                <h2>Office Address</h2>
+
+                <div class="footerlinks">
+                    <a href="404.html">123,Anna Nager </a>
+                    <a href="404.html">Chennai, Tamilnadu</a>
+                </div>
+
+                <h2>Email Address</h2>
+
+                <div class="footerlinks">
+                    <a href="404.html">admin@gmail.com</a>
+                    <a href="404.html">career@gmail.com</a>
+                </div>
+
+            </div>
+
+            <div class="fersec2">
+
+                <h2>Phone Number</h2>
+
+                <div class="footerlinks">
+                    <a href="404.html">+91 12345 67890</a>
+                    <a href="404.html">+91 09876 54321</a>
+                </div>
+
+                <h2>follow Us</h2>
+
+                <div class="footer-sotial-icons">
+                    <a href="404.html"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer2">
+            <p>@ 2026 All Rights Reserved by Stackly</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
