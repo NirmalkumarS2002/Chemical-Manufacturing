@@ -1199,8 +1199,10 @@
     .sk-testi-card {
         background: white;
         border-radius: 10px;
-        padding: 32px;
+        padding: 20px;
         border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
     }
 
     .sk-testi-quote {
@@ -1215,6 +1217,7 @@
         color: #555;
         line-height: 1.7;
         margin-bottom: 22px;
+        flex: 1;
     }
 
     .sk-testi-person {
@@ -1804,7 +1807,7 @@
                         <img src="https://images.unsplash.com/photo-1601961545517-59307b1fbac3?auto=format&fit=crop&w=100&q=80"
                             alt="Client">
                         <div>
-                            <h5>Procurement Lead</h5><span>Textile Manufacturing Co.</span>
+                            <h5>Procurement Lead</h5><span>Textile Manufacturing</span>
                         </div>
                     </div>
                 </div>
@@ -1882,7 +1885,7 @@
             <a href="index.html"><img src="./src/logo.webp" alt="Company Logo" class="footerlogo"></a>
 
             <div class="footerform">
-                <input type="email" placeholder="Enter Your Email">
+                <input type="email" placeholder="Enter Your Email" id="subemail">
                 <button class="subscribe-btn">Subscribe</button>
             </div>
         </div>

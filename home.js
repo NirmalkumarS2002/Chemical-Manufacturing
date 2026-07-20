@@ -19,3 +19,5 @@ window.addEventListener("scroll",()=>{
         fixedbtn.classList.remove("active")
     }
 })
+
+

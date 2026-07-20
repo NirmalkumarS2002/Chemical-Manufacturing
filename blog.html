@@ -249,6 +249,8 @@
         border-radius: 10px;
         overflow: hidden;
         transition: .5s ease;
+        display: flex;
+        flex-direction: column;
     }
 
     .sb-article-card:hover {
@@ -295,12 +297,15 @@
         font-size: 16.5px;
         line-height: 1.4;
         margin-bottom: 10px;
+            flex: 1;
+            min-height: 40px;
     }
 
     .sb-article-text p {
         font-size: 13.5px;
-        color: #666;
+        color: #666; 
         line-height: 1.6;
+    
     }
 
     @media (max-width:1080px) {
@@ -351,7 +356,7 @@
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 10px;
-        padding: 26px 10px;
+        padding: 30px 10px;
         text-decoration: none;
         transition: .4s ease;
     }
@@ -395,101 +400,10 @@
         }
     }
 
-    /* ============ 5. NEWSLETTER ============ */
-    .sb-newsletter {
-        position: relative;
-        padding: 80px;
-        text-align: center;
-        background:
-            linear-gradient(120deg, rgba(13, 128, 206, 0.88), rgba(19, 35, 64, 0.92)),
-            url("https://images.unsplash.com/photo-1670689334015-299d6559b3c3?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-    }
-
-    .sb-newsletter h2 {
-        font-family: "Sora", sans-serif;
-        font-weight: 500;
-        font-size: clamp(26px, 3.5vw, 38px);
-        color: white;
-        max-width: 620px;
-        margin: 0 auto 14px auto;
-        line-height: 1.2;
-    }
-
-    .sb-newsletter p {
-        color: rgba(255, 255, 255, 0.85);
-        font-size: 15px;
-        max-width: 480px;
-        margin: 0 auto 30px auto;
-        line-height: 1.6;
-    }
-
-    .sb-newsletter-form {
-        position: relative;
-        max-width: 460px;
-        margin: 0 auto;
-    }
-
-    .sb-newsletter-form input {
-        width: 100%;
-        padding: 16px 20px;
-        border: none;
-        border-radius: 7px;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-    }
-
-    .sb-newsletter-form input:focus {
-        outline: none;
-    }
-
-    .sb-newsletter-form button {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-        bottom: 5px;
-        padding: 0 22px;
-        background: var(--scolor);
-        border: none;
-        color: white;
-        border-radius: 5px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: .5s ease;
-    }
-
-    .sb-newsletter-form button:hover {
-        background: var(--pcolor);
-    }
-
     @media (max-width:900px) {
         .sb-newsletter {
             padding: 55px 30px;
         }
-    }
-
-    /* ============ 6. POPULAR TAGS ============ */
-    .sb-tags {
-        padding: 70px 80px;
-        background: white;
-        text-align: center;
-    }
-
-    .sb-tags h2 {
-        font-family: "Sora", sans-serif;
-        font-weight: 500;
-        font-size: clamp(24px, 3vw, 30px);
-        margin-bottom: 25px;
-    }
-
-    .sb-tags-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .sb-tags-row a {
-        text-decoration: none;
     }
 
     @media (max-width:900px) {
@@ -762,32 +676,7 @@
         </div>
     </section>
 
-    <!-- 5. NEWSLETTER -->
-    <section class="sb-newsletter">
-        <h6 class="sb-eyebrow" style="justify-content:center; color:white;"><span
-                class="material-symbols-outlined">mail</span>Stay Updated</h6>
-        <h2>Get New Articles in Your Inbox</h2>
-        <p>One email a month covering production updates, safety notes and industry insight. No spam.</p>
-        <div class="sb-newsletter-form">
-            <input type="email" placeholder="Enter your email address">
-            <button type="button">Subscribe</button>
-        </div>
-    </section>
-
-    <!-- 6. POPULAR TAGS -->
-    <section class="sb-tags">
-        <h2>Popular Tags</h2>
-        <div class="sb-tags-row">
-            <a href="404.html" class="sb-tag">Industrial Solvents</a>
-            <a href="404.html" class="sb-tag">Quality Control</a>
-            <a href="404.html" class="sb-tag">Plant Safety</a>
-            <a href="404.html" class="sb-tag">Sustainability</a>
-            <a href="404.html" class="sb-tag">Agro Chemicals</a>
-            <a href="404.html" class="sb-tag">R&amp;D</a>
-            <a href="404.html" class="sb-tag">Compliance</a>
-            <a href="404.html" class="sb-tag">Logistics</a>
-        </div>
-    </section>
+ 
 
 </div>
 
@@ -797,7 +686,7 @@
             <a href="index.html"><img src="./src/logo.webp" alt="Company Logo" class="footerlogo"></a>
 
             <div class="footerform">
-                <input type="email" placeholder="Enter Your Email">
+                <input type="email" placeholder="Enter Your Email " id="subemail">
                 <button class="subscribe-btn">Subscribe</button>
             </div>
         </div>
